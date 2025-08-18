@@ -2,7 +2,7 @@
 "use client";
 import Image from "next/image";
 
-const LOGO_HEIGHT_DESKTOP = 44;  // ここだけいじれば全ロゴの“目線”が揃う
+const LOGO_HEIGHT_DESKTOP = 44;  // 全ロゴの高さを揃える
 const LOGO_HEIGHT_MOBILE = 32;
 
 const logos = [
@@ -36,18 +36,17 @@ export default function ClientsMarquee() {
 
       {/* ビューポート */}
       <div style={{ position: "relative", overflow: "hidden", padding: "10px 0" }}>
-        {/* トラック（無限スクロール用に2倍並べる） */}
+        {/* 無限スクロールさせるトラック */}
         <div className="marquee" aria-hidden="true">
           {[...logos, ...logos].map((logo, i) => (
             <div key={i} className="logoSlot">
-              {/* 透過PNGそのままカラー表示。高さだけ揃える */}
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={2000} // ダミー（height優先）。Nextのレイアウト都合で必要
+                width={2000} // dummy, height優先
                 height={LOGO_HEIGHT_DESKTOP}
                 className="logoImg"
-                priority={i < 6} // 最初の数枚は優先読み込み
+                priority={i < 6}
               />
             </div>
           ))}
@@ -57,7 +56,7 @@ export default function ClientsMarquee() {
       <style jsx>{`
         .marquee {
           display: flex;
-          gap: 56px;                 /* ロゴ間の余白 */
+          gap: 56px; /* ロゴ間の余白 */
           width: max-content;
           animation: marquee 22s linear infinite;
           will-change: transform;
@@ -69,28 +68,34 @@ export default function ClientsMarquee() {
           padding: 6px 0;
         }
         .logoImg {
-          height: ${LOGO_HEIGHT_DESKTOP}px;   /* 全ロゴの“目線”を揃える */
-          width: auto;                        /* 横幅は比率維持で自動 */
+          height: ${LOGO_HEIGHT_DESKTOP}px;
+          width: auto;
           object-fit: contain;
-          image-rendering: auto;
-          /* 色そのまま（グレースケール/ブレンド無効） */
           filter: none;
           mix-blend-mode: normal;
           opacity: 1;
-          transition: transform .25s ease;
+          transition: transform 0.25s ease;
         }
         .logoImg:hover {
           transform: translateY(-2px);
         }
 
         @keyframes marquee {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
 
         @media (max-width: 760px) {
-          .marquee { gap: 36px; }
-          .logoImg { height: ${LOGO_HEIGHT_MOBILE}px; }
+          .marquee {
+            gap: 36px;
+          }
+          .logoImg {
+            height: ${LOGO_HEIGHT_MOBILE}px;
+          }
         }
       `}</style>
     </section>
