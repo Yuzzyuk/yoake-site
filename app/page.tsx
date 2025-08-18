@@ -1,4 +1,4 @@
-import ProjectsSection from "../components/ProjectsSection";
+import ProjectsSection from "../ProjectsSection";
 
 export default function Home() {
   return (
@@ -259,7 +259,7 @@ export default function Home() {
         `}</style>
       </section>
 
-      {/* ===== Projects（既存のコンポーネントを呼ぶ） ===== */}
+      {/* ===== Projects（既存の ProjectsSection を呼ぶ） ===== */}
       <section id="projects">
         <ProjectsSection />
       </section>
