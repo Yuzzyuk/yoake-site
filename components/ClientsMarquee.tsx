@@ -2,7 +2,7 @@
 "use client";
 import Image from "next/image";
 
-const LOGO_HEIGHT_DESKTOP = 44;  // 全ロゴの高さを揃える
+const LOGO_HEIGHT_DESKTOP = 44;  // 全ロゴの高さを揃え
 const LOGO_HEIGHT_MOBILE = 32;
 
 const logos = [
