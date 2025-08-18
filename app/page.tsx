@@ -127,6 +127,7 @@ export default function Home() {
             img="/Yuzzy.jpg"
             name="Yuzzy"
             role="SNS Advisor / Consulting & Marketing"
+            imgPosition="object-top"   // ← 顔が見えるように上寄せ
             lines={[
               "YouTube登録者20万人（総再生4,500万回）",
               "X 4万人 / Instagram 1.4万人",
@@ -296,10 +297,14 @@ export default function Home() {
 }
 
 /* ===== Card コンポーネント（同ファイル内） ===== */
-function MemberCard(props: { img: string; name: string; role: string; lines: string[] }) {
+function MemberCard(props: { img: string; name: string; role: string; lines: string[]; imgPosition?: string }) {
   return (
     <article className="card">
-      <img src={props.img} alt={props.name} className="media" />
+      <img
+        src={props.img}
+        alt={props.name}
+        className={`media ${props.imgPosition || ""}`}
+      />
       <div className="body">
         <div className="name">{props.name}</div>
         <div className="role">{props.role}</div>
