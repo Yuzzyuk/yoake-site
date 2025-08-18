@@ -3,69 +3,100 @@ export default function Home() {
     <main
       style={{
         minHeight: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        background: "linear-gradient(135deg, #0f0f0f, #1a1a40)",
-        color: "white",
-        fontFamily: "sans-serif",
+        display: "grid",
+        placeItems: "center",
+        background:
+          "radial-gradient(1000px 500px at 50% -10%, rgba(255,255,255,0.06), transparent), linear-gradient(135deg, #0f0f0f 0%, #181832 60%, #0f0f0f 100%)",
         textAlign: "center",
+        padding: "64px 24px",
       }}
     >
-      <h1
-        style={{
-          fontSize: "3.5rem",
-          marginBottom: "1rem",
-          background: "linear-gradient(90deg, #ff8a00, #e52e71)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-        }}
-      >
-        Yoake Site 🚀
-      </h1>
-
-      <p style={{ fontSize: "1.3rem", maxWidth: "600px", lineHeight: 1.6 }}>
-        Welcome to your{" "}
-        <span style={{ color: "#00e5ff" }}>Next.js</span> +{" "}
-        <span style={{ color: "#7cffcb" }}>Vercel</span> homepage.<br />
-        Let’s build something amazing together 🌅
-      </p>
-
-      <div style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>
-        <a
-          href="https://vercel.com"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div style={{ maxWidth: 900 }}>
+        <div
           style={{
-            padding: "0.75rem 1.5rem",
-            borderRadius: "9999px",
-            background:
-              "linear-gradient(90deg, rgba(255,138,0,0.9), rgba(229,46,113,0.9))",
-            color: "white",
-            fontWeight: "bold",
-            textDecoration: "none",
-            transition: "0.3s",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            padding: "6px 12px",
+            borderRadius: 999,
+            border: "1px solid rgba(255,255,255,0.15)",
+            background: "rgba(255,255,255,0.05)",
+            fontSize: 12,
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            opacity: 0.9
           }}
         >
-          Deploy on Vercel
-        </a>
-        <a
-          href="https://nextjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          <span
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: 999,
+              background:
+                "linear-gradient(90deg, rgba(255,138,0,1), rgba(229,46,113,1))",
+              display: "inline-block",
+            }}
+          />
+          Let its value soar to the world
+        </div>
+
+        <h1
           style={{
-            padding: "0.75rem 1.5rem",
-            borderRadius: "9999px",
-            border: "2px solid #00e5ff",
-            color: "#00e5ff",
-            fontWeight: "bold",
-            textDecoration: "none",
-            transition: "0.3s",
+            margin: "18px 0 8px",
+            fontSize: "clamp(40px, 7vw, 96px)",
+            lineHeight: 1.05,
+            fontWeight: 900,
+            letterSpacing: "-0.02em",
+            background: "linear-gradient(90deg, #ffffff, rgba(255,255,255,0.6))",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
           }}
         >
-          Learn Next.js
-        </a>
+          YOAKE — Hyper-Creative Studio
+        </h1>
+
+        <p
+          style={{
+            margin: "12px auto 28px",
+            maxWidth: 720,
+            fontSize: "clamp(16px, 2.2vw, 20px)",
+            color: "rgba(255,255,255,0.75)",
+            lineHeight: 1.7,
+          }}
+        >
+          SNSの爆発力 × シネマティックな映像で、<br />
+          プロダクトの熱量を世界へ。
+        </p>
+
+        <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
+          <a
+            href="#projects"
+            style={{
+              padding: "12px 20px",
+              borderRadius: 999,
+              fontWeight: 700,
+              background:
+                "linear-gradient(90deg, rgba(255,138,0,0.95), rgba(229,46,113,0.95))",
+              color: "#0c0c0f",
+            }}
+          >
+            VIEW PROJECTS
+          </a>
+          <a
+            href="#contact"
+            style={{
+              padding: "12px 20px",
+              borderRadius: 999,
+              fontWeight: 700,
+              border: "1px solid rgba(255,255,255,0.2)",
+              color: "white",
+            }}
+          >
+            CONTACT
+          </a>
+        </div>
+
+        {/* 後でここに YouTube の <iframe> を入れてOK */}
       </div>
     </main>
   );
