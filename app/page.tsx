@@ -70,7 +70,7 @@ export default function Home() {
             }}
           >
             SNSの爆発力 × シネマティックな映像で、<br />
-            プロダクトの熱量を世界へ！
+            プロダクトの熱量を世界へ！！
           </p>
 
           <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
