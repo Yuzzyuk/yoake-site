@@ -271,7 +271,7 @@ export default function Home() {
       </section>
 　　　{/* ===== Projects（既存の ProjectsSection を呼ぶ） ===== */}
 　　　<section id="projects">
- 　　　 <ProjectsSection />
+ 　　　 <ClientsMarquee />
 　　　</section>
       
       {/* ===== Footer ===== */}
