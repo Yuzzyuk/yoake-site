@@ -1,4 +1,4 @@
-import ProjectsSection from "@/components/ProjectsSection";
+import ProjectsSection from "../components/ProjectsSection";
 
 export default function Home() {
   return (
@@ -216,7 +216,6 @@ export default function Home() {
             transform-style: preserve-3d;
             transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
           }
-          /* グロー */
           .card::before{
             content:"";
             position:absolute; inset: -40% -40%;
@@ -226,7 +225,6 @@ export default function Home() {
             opacity:.0; transition: opacity .35s;
             pointer-events:none;
           }
-          /* シャイン */
           .card::after{
             content:"";
             position:absolute; inset:0;
@@ -235,7 +233,6 @@ export default function Home() {
             transition: transform .7s ease;
             pointer-events:none;
           }
-
           .card:hover{
             transform: translateY(-8px) rotateX(1deg);
             box-shadow: 0 24px 60px rgba(0,0,0,.45);
@@ -262,7 +259,7 @@ export default function Home() {
         `}</style>
       </section>
 
-      {/* ===== Projects（君の既存コンポーネントを呼ぶだけ） ===== */}
+      {/* ===== Projects（既存のコンポーネントを呼ぶ） ===== */}
       <section id="projects">
         <ProjectsSection />
       </section>
