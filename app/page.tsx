@@ -269,7 +269,11 @@ export default function Home() {
         <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", marginBottom: 8, fontWeight: 900 }}>Get an estimate for your upcoming project</h2>
         <p>問い合わせフォームは後で実装します。まずはメンバー紹介をご確認ください。</p>
       </section>
-
+　　　{/* ===== Projects（既存の ProjectsSection を呼ぶ） ===== */}
+　　　<section id="projects">
+ 　　　 <ProjectsSection />
+　　　</section>
+      
       {/* ===== Footer ===== */}
       <footer
         style={{
