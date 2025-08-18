@@ -1,3 +1,4 @@
+import ClientsMarquee from "../components/ClientsMarquee";
 import ProjectsSection from "../ProjectsSection";
 
 export default function Home() {
@@ -111,12 +112,10 @@ export default function Home() {
               CONTACT
             </a>
           </div>
-
-          {/* 後でここに YouTube の <iframe> を入れてOK */}
         </div>
       </main>
 
-      {/* ===== Members：横3並び・演出付き（追加） ===== */}
+      {/* ===== Members（横3並び） ===== */}
       <section id="members" className="members-section">
         <div className="members-head">
           <div className="pill">OUR CREATIVE MEMBERS</div>
@@ -161,7 +160,6 @@ export default function Home() {
           />
         </div>
 
-        {/* セクション専用スタイル（依存ゼロ） */}
         <style>{`
           .members-section{
             position: relative;
@@ -198,14 +196,12 @@ export default function Home() {
           .members-head p{
             margin:0 auto; max-width:760px; opacity:.8; line-height:1.7;
           }
-
           .row{
             display:grid; gap:18px; grid-template-columns:1fr;
           }
           @media (min-width: 860px){
             .row{ grid-template-columns: repeat(3, 1fr); gap:22px; }
           }
-
           .card{
             position:relative;
             border-radius: 22px;
@@ -240,7 +236,6 @@ export default function Home() {
           }
           .card:hover::before{ opacity:.8; }
           .card:hover::after{ transform: translateX(120%) skewX(-12deg); }
-
           .media{
             width:100%; aspect-ratio: 4 / 3; object-fit: cover;
             border-radius: 14px;
@@ -250,7 +245,6 @@ export default function Home() {
             0%,100%{ transform: translateY(0px); }
             50%{ transform: translateY(-6px); }
           }
-
           .body{ padding:12px 6px 6px; }
           .name{ margin:10px 0 2px; font-weight:800; font-size:20px; }
           .role{ margin:0 0 10px; opacity:.8; font-size:13px; letter-spacing:.01em; }
@@ -259,21 +253,31 @@ export default function Home() {
         `}</style>
       </section>
 
+      {/* ===== 実績（ロゴ・マルキー） ===== */}
+      <ClientsMarquee />
+
       {/* ===== Projects（既存の ProjectsSection を呼ぶ） ===== */}
       <section id="projects">
         <ProjectsSection />
       </section>
 
       {/* ===== Contact（後で本実装） ===== */}
-      <section id="contact" style={{ padding: "56px 20px", maxWidth: 900, margin: "0 auto", textAlign: "center", opacity: 0.85 }}>
-        <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", marginBottom: 8, fontWeight: 900 }}>Get an estimate for your upcoming project</h2>
+      <section
+        id="contact"
+        style={{
+          padding: "56px 20px",
+          maxWidth: 900,
+          margin: "0 auto",
+          textAlign: "center",
+          opacity: 0.85,
+        }}
+      >
+        <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", marginBottom: 8, fontWeight: 900 }}>
+          Get an estimate for your upcoming project
+        </h2>
         <p>問い合わせフォームは後で実装します。まずはメンバー紹介をご確認ください。</p>
       </section>
-　　　{/* ===== Projects（既存の ProjectsSection を呼ぶ） ===== */}
-　　　<section id="projects">
- 　　　 <ClientsMarquee />
-　　　</section>
-      
+
       {/* ===== Footer ===== */}
       <footer
         style={{
@@ -305,7 +309,7 @@ export default function Home() {
   );
 }
 
-/* ===== Card コンポーネント（同ファイル内：追加のみ） ===== */
+/* ===== Card コンポーネント ===== */
 function MemberCard(props: { img: string; name: string; role: string; lines: string[]; imgPosition?: string }) {
   return (
     <article className="card">
