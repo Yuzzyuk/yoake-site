@@ -259,26 +259,6 @@ export default function Home() {
         `}</style>
       </section>
 
-      import ClientsMarquee from "../components/ClientsMarquee";
-
-　　　　export default function Home() {
-  　　　　return (
-   　　　　 <>
-    　　　  {/* Hero */}
-           <main>...</main>
-
-           {/* Members */}
-           <section id="members">...</section>
-
-           {/* 実績 */}
-           <ClientsMarquee />
-
-           {/* Contact */}
-           <section id="contact">...</section>
-         </>
-       );
-      }
-
       {/* ===== Projects（既存の ProjectsSection を呼ぶ） ===== */}
       <section id="projects">
         <ProjectsSection />
