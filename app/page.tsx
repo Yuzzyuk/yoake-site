@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <>
-      {/* ===== Hero（あなたが元々使っている部分） ===== */}
+      {/* ===== Hero（あなたの元コードそのまま） ===== */}
       <main
         style={{
           minHeight: "100vh",
@@ -114,118 +114,155 @@ export default function Home() {
         </div>
       </main>
 
-      {/* ===== Members（3人の詳細） ===== */}
-      <section id="members" style={{ padding: "72px 20px", maxWidth: 1100, margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: 24 }}>
-          <div
-            style={{
-              display: "inline-block",
-              fontSize: 12,
-              letterSpacing: ".06em",
-              opacity: 0.75,
-              padding: "6px 12px",
-              border: "1px solid rgba(255,255,255,.14)",
-              borderRadius: 999,
-            }}
-          >
-            OUR CREATIVE MEMBERS
-          </div>
-          <h2
-            style={{
-              fontSize: "clamp(28px, 4.5vw, 48px)",
-              margin: "8px 0 10px",
-              fontWeight: 900,
-              letterSpacing: "-.02em",
-              textAlign: "center",
-            }}
-          >
-            チームで“世界観”を届ける
-          </h2>
-          <p style={{ opacity: 0.82, maxWidth: 720, margin: "0 auto" }}>
-            YouTuber視点のSNS運用 × 映像表現。プロダクトの熱量を、そのまま世界へ。
-          </p>
+      {/* ===== Members：横3並び・演出付き ===== */}
+      <section id="members" className="members-section">
+        <div className="members-head">
+          <div className="pill">OUR CREATIVE MEMBERS</div>
+          <h2>チームで“世界観”を届ける</h2>
+          <p>登録者20万人級のYouTuber × SNSマーケ × 映像制作。熱量をそのまま世界へ。</p>
         </div>
 
-        {/* Grid */}
-        <div id="member-grid" style={{ display: "grid", gap: 16, gridTemplateColumns: "1fr" }}>
-          <style>{`
-            @media (min-width: 820px) {
-              #member-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-            }
-            .card { border: 1px solid rgba(255,255,255,.14); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border-radius: 20px; overflow: hidden; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
-            .card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.25); box-shadow: 0 12px 30px rgba(0,0,0,.35); }
-            .media { aspect-ratio: 4/3; width: 100%; object-fit: cover; display: block; }
-            .body { padding: 18px; }
-            .role { margin: 6px 0 10px; opacity: .8; font-size: 14px; }
-            .desc { margin: 0; opacity: .85; lineHeight: 1.6; font-size: 14px; white-space: pre-line; }
-            .linkrow { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; }
-            .link { padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.2); font-size: 13px; color: #fff; }
-          `}</style>
-
-          {/* Yuzzy */}
-          <article className="card">
-            <img src="/Yuzzy.jpg" alt="Yuzzy" className="media" />
-            <div className="body">
-              <h3 style={{ margin: 0, fontSize: 22, fontWeight: 800 }}>Yuzzy</h3>
-              <p className="role">留学系YouTuber / SNS総フォロワー25万人</p>
-              <p className="desc">
-                YouTube登録者20万人（総再生4,500万回）、Xフォロワー4万人、Instagramフォロワー1.4万人{"\n"}
-                TOEFL、Notion、Duolingo、講談社、角川、静岡県などとの案件実績{"\n"}
-                高校時代にIBで英国留学を経験後、米国 Minerva University に入学・卒業{"\n"}
-                日本語と英語のバイリンガルとして、幅広い領域で活動中
-              </p>
-              <div className="linkrow">
-                <a className="link" href="#contact">Contact</a>
-              </div>
-            </div>
-          </article>
-
-          {/* Mick */}
-          <article className="card">
-            <img src="/Mick.jpg" alt="Mick" className="media" />
-            <div className="body">
-              <h3 style={{ margin: 0, fontSize: 22, fontWeight: 800 }}>Mick</h3>
-              <p className="role">留学系YouTuber / クリエイター・アーティスト</p>
-              <p className="desc">
-                YouTube登録者20万人、TikTokフォロワー5万人{"\n"}
-                社会実験動画が1,300万再生を突破{"\n"}
-                高校時代に米国のパブリックスクールに留学{"\n"}
-                「VIDEOGRAPHERS TOKYO ONLINE 2020」に登壇{"\n"}
-                ユニバーサルミュージックと契約し、ジャスティン・ビーバー「Anyone」のプロモーション映像を制作{"\n"}
-                アメリカ・アリゾナ州の映像コンテスト「Magide2023」で学校初のGrand Championを受賞{"\n"}
-                現在はアトランタを拠点にAsuka Louis名義で音楽活動。最新アルバム Process は全工程を自ら手掛け、オルタナティブ・トップアルバムTop20にランクイン
-              </p>
-              <div className="linkrow">
-                <a className="link" href="#contact">Contact</a>
-              </div>
-            </div>
-          </article>
-
-          {/* Rintato */}
-          <article className="card">
-            <img src="/Rin.jpg" alt="Rintato" className="media" />
-            <div className="body">
-              <h3 style={{ margin: 0, fontSize: 22, fontWeight: 800 }}>Rintato</h3>
-              <p className="role">SNS Advisor / Video Editor</p>
-              <p className="desc">
-                慶應義塾大学 経済学部PEARL在学、日英バイリンガル{"\n"}
-                完全未経験から3年で大手カメラメーカーや高級ホテル、航空会社などと制作実績{"\n"}
-                実績例：Chiba Jets、DJI、Intercontinental DaNang、Miyachi (Rapper)、Vietnam Airlines など{"\n"}
-                ホテル系列のInstagramアカウント運用で、半年間にフォロワー1.3万人増加を達成{"\n"}
-                150万回再生を超える動画制作実績を持つ
-              </p>
-              <div className="linkrow">
-                <a className="link" href="#contact">Contact</a>
-              </div>
-            </div>
-          </article>
+        <div className="row">
+          <MemberCard
+            img="/Yuzzy.jpg"
+            name="Yuzzy"
+            role="SNS Advisor / Consulting & Marketing"
+            lines={[
+              "YouTube登録者20万人（総再生4,500万回）",
+              "X 4万人 / Instagram 1.4万人",
+              "TOEFL, Notion, Duolingo, 講談社, 角川, 静岡県 等と案件実績",
+              "Minerva University 卒。日英バイリンガルで幅広く活動",
+            ]}
+          />
+          <MemberCard
+            img="/Mick.jpg"
+            name="Mick"
+            role="Visual Storyteller / Filming & Editing"
+            lines={[
+              "YouTube 20万人 / TikTok 5万人",
+              "社会実験動画が1,300万再生突破",
+              "ユニバーサルミュージック案件 / Magide2023 Grand Champion",
+              "Asuka Louis名義で音楽活動。最新作がオルタナTop20",
+            ]}
+          />
+          <MemberCard
+            img="/Rin.jpg"
+            name="Rintato"
+            role="SNS Advisor / Video Editor"
+            lines={[
+              "慶應経済PEARL 在学、日英バイリンガル",
+              "大手カメラ/高級ホテル/航空会社などと制作実績",
+              "ホテル系IG運用で半年1.3万人増",
+              "150万回超の動画制作実績",
+            ]}
+          />
         </div>
+
+        {/* セクション専用スタイル（依存ゼロ） */}
+        <style>{`
+          .members-section{
+            position: relative;
+            padding: 92px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+          .members-section::before{
+            content:"";
+            position:absolute; inset:-10% -20% auto -20%;
+            height: 420px;
+            background:
+              radial-gradient(600px 200px at 50% 0%, rgba(229,46,113,.20), transparent 70%),
+              radial-gradient(500px 220px at 20% 0%, rgba(0,229,255,.12), transparent 70%),
+              radial-gradient(500px 220px at 80% 0%, rgba(255,138,0,.12), transparent 70%);
+            filter: blur(40px);
+            pointer-events:none;
+          }
+          .members-head{
+            text-align:center;
+            margin-bottom: 32px;
+          }
+          .pill{
+            display:inline-block; padding:6px 12px; border-radius:999px;
+            border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.05);
+            font-size:12px; letter-spacing:.12em; opacity:.85;
+          }
+          .members-head h2{
+            margin:10px 0 8px; font-size:clamp(28px,4.6vw,44px);
+            font-weight:900; letter-spacing:-.02em;
+            background:linear-gradient(90deg,#fff,rgba(255,255,255,.7));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+          }
+          .members-head p{
+            margin:0 auto; max-width:760px; opacity:.8; line-height:1.7;
+          }
+
+          .row{
+            display:grid; gap:18px; grid-template-columns:1fr;
+          }
+          @media (min-width: 860px){
+            .row{ grid-template-columns: repeat(3, 1fr); gap:22px; }
+          }
+
+          .card{
+            position:relative;
+            border-radius: 22px;
+            overflow:hidden;
+            padding:14px;
+            background: rgba(255,255,255,.04);
+            border:1px solid rgba(255,255,255,.12);
+            transform-style: preserve-3d;
+            transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
+          }
+          /* グロー */
+          .card::before{
+            content:"";
+            position:absolute; inset: -40% -40%;
+            background: conic-gradient(from 0deg, rgba(255,138,0,.18), rgba(229,46,113,.18), rgba(0,229,255,.18), rgba(255,138,0,.18));
+            filter: blur(40px);
+            transform: translateZ(-1px);
+            opacity:.0; transition: opacity .35s;
+            pointer-events:none;
+          }
+          /* シャイン */
+          .card::after{
+            content:"";
+            position:absolute; inset:0;
+            background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.25) 50%, transparent 60%);
+            transform: translateX(-120%) skewX(-12deg);
+            transition: transform .7s ease;
+            pointer-events:none;
+          }
+
+          .card:hover{
+            transform: translateY(-8px) rotateX(1deg);
+            box-shadow: 0 24px 60px rgba(0,0,0,.45);
+            border-color: rgba(255,255,255,.25);
+          }
+          .card:hover::before{ opacity:.8; }
+          .card:hover::after{ transform: translateX(120%) skewX(-12deg); }
+
+          .media{
+            width:100%; aspect-ratio: 4 / 3; object-fit: cover;
+            border-radius: 14px;
+            animation: float 7s ease-in-out infinite;
+          }
+          @keyframes float{
+            0%,100%{ transform: translateY(0px); }
+            50%{ transform: translateY(-6px); }
+          }
+
+          .body{ padding:12px 6px 6px; }
+          .name{ margin:10px 0 2px; font-weight:800; font-size:20px; }
+          .role{ margin:0 0 10px; opacity:.8; font-size:13px; letter-spacing:.01em; }
+          .list{ margin:0; padding-left: 18px; opacity:.88; }
+          .list li{ margin:6px 0; }
+        `}</style>
       </section>
 
-      {/* ===== Contact（後で本実装。今はプレースホルダー） ===== */}
+      {/* ===== Contact（後で本実装） ===== */}
       <section id="contact" style={{ padding: "56px 20px", maxWidth: 900, margin: "0 auto", textAlign: "center", opacity: 0.85 }}>
         <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", marginBottom: 8, fontWeight: 900 }}>Get an estimate for your upcoming project</h2>
-        <p>問い合わせフォームは後で実装します。まずはメンバー紹介を公開中。</p>
+        <p>問い合わせフォームは後で実装します。まずはメンバー紹介をご確認ください。</p>
       </section>
 
       {/* ===== Footer ===== */}
@@ -238,7 +275,7 @@ export default function Home() {
       >
         <div
           style={{
-            maxWidth: 1100,
+            maxWidth: 1200,
             margin: "0 auto",
             display: "flex",
             gap: 16,
@@ -255,5 +292,21 @@ export default function Home() {
         </div>
       </footer>
     </>
+  );
+}
+
+/* ===== Card コンポーネント（同ファイル内） ===== */
+function MemberCard(props: { img: string; name: string; role: string; lines: string[] }) {
+  return (
+    <article className="card">
+      <img src={props.img} alt={props.name} className="media" />
+      <div className="body">
+        <div className="name">{props.name}</div>
+        <div className="role">{props.role}</div>
+        <ul className="list">
+          {props.lines.map((t, i) => <li key={i}>{t}</li>)}
+        </ul>
+      </div>
+    </article>
   );
 }
