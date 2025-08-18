@@ -4,7 +4,7 @@ import ProjectsSection from "../ProjectsSection";
 export default function Home() {
   return (
     <>
-      {/* ===== Hero（あなたの元コードそのまま） ===== */}
+      {/* ===== Hero（あなたの元コードそkのまま） ===== */}
       <main
         style={{
           minHeight: "100vh",
