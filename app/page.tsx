@@ -1,3 +1,5 @@
+import ProjectsSection from "@/components/ProjectsSection";
+
 export default function Home() {
   return (
     <>
@@ -114,7 +116,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* ===== Members：横3並び・演出付き ===== */}
+      {/* ===== Members：横3並び・演出付き（追加） ===== */}
       <section id="members" className="members-section">
         <div className="members-head">
           <div className="pill">OUR CREATIVE MEMBERS</div>
@@ -127,7 +129,7 @@ export default function Home() {
             img="/Yuzzy.jpg"
             name="Yuzzy"
             role="SNS Advisor / Consulting & Marketing"
-            imgPosition="object-top"   // ← 顔が見えるように上寄せ
+            imgPosition="object-top"
             lines={[
               "YouTube登録者20万人（総再生4,500万回）",
               "X 4万人 / Instagram 1.4万人",
@@ -260,6 +262,11 @@ export default function Home() {
         `}</style>
       </section>
 
+      {/* ===== Projects（君の既存コンポーネントを呼ぶだけ） ===== */}
+      <section id="projects">
+        <ProjectsSection />
+      </section>
+
       {/* ===== Contact（後で本実装） ===== */}
       <section id="contact" style={{ padding: "56px 20px", maxWidth: 900, margin: "0 auto", textAlign: "center", opacity: 0.85 }}>
         <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", marginBottom: 8, fontWeight: 900 }}>Get an estimate for your upcoming project</h2>
@@ -288,6 +295,7 @@ export default function Home() {
           <div>© {new Date().getFullYear()} YOAKE</div>
           <nav style={{ display: "flex", gap: 16 }}>
             <a href="#members" style={{ color: "#fff" }}>Members</a>
+            <a href="#projects" style={{ color: "#fff" }}>Projects</a>
             <a href="#contact" style={{ color: "#fff" }}>Contact</a>
           </nav>
         </div>
@@ -296,7 +304,7 @@ export default function Home() {
   );
 }
 
-/* ===== Card コンポーネント（同ファイル内） ===== */
+/* ===== Card コンポーネント（同ファイル内：追加のみ） ===== */
 function MemberCard(props: { img: string; name: string; role: string; lines: string[]; imgPosition?: string }) {
   return (
     <article className="card">
