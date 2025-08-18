@@ -127,7 +127,7 @@ export default function Home() {
             img="/Yuzzy.jpg"
             name="Yuzzy"
             role="SNS Advisor / Consulting & Marketing"
-            imgPosition="object-[50%_20%]"   // ← 顔が見えるように上寄せ
+            imgPosition="object-top"   // ← 顔が見えるように上寄せ
             lines={[
               "YouTube登録者20万人（総再生4,500万回）",
               "X 4万人 / Instagram 1.4万人",
