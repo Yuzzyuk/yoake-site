@@ -4,7 +4,7 @@ import ProjectsSection from "../ProjectsSection";
 export default function Home() {
   return (
     <>
-      {/* ===== Hero（あなたの元コードそkのまま） ===== */}
+      {/* ===== Hero（あなたの元コードそのまま） ===== */}
       <main
         style={{
           minHeight: "100vh",
@@ -70,7 +70,7 @@ export default function Home() {
             }}
           >
             SNSの爆発力 × シネマティックな映像で、<br />
-            プロダクトの熱量を世界へ。
+            プロダクトの熱量を世界へ！
           </p>
 
           <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
