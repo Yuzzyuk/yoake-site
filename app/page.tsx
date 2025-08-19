@@ -1,5 +1,6 @@
 import ClientsMarquee from "../components/ClientsMarquee";
 import ProjectsSection from "../ProjectsSection";
+import ServicesShowcase from "../components/ServicesShowcase";
 
 export default function Home() {
   return (
@@ -115,131 +116,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* ===== Services（新規追加：強みを可視化） ===== */}
-      <section id="services" className="services-section">
-        <div className="sv-head">
-          <div className="pill">WHAT WE DO</div>
-          <h2>Bilingual Growth for Global Brands</h2>
-          <p>
-            バイリンガル × 国際経験を活かして、<br className="hide-sm" />
-            日本企業の海外進出・海外向け発信、そして音楽/エンタメ領域まで加速させます。
-          </p>
-        </div>
-
-        <div className="sv-row">
-          <ServiceCard
-            badge="Priority"
-            title="International SNS Consulting"
-            subtitle="海外進出 / 海外向けSNS運用・広告"
-            points={[
-              "英日バイリンガルでの戦略設計（市場/競合/ペルソナ）",
-              "TikTok / Instagram / YouTube での運用・UGC設計",
-              "英語コピー/字幕・ローカライズ運用、広告最適化",
-            ]}
-            ctaLabel="相談する"
-            ctaHref="#contact"
-            accent="linear-gradient(135deg, rgba(0,229,255,.25), rgba(229,46,113,.25))"
-          />
-
-          <ServiceCard
-            badge="Film"
-            title="Bilingual Promo Video"
-            subtitle="海外基準の映像 × SNS最適化"
-            points={[
-              "ショート〜ブランドフィルムまで一貫制作",
-              "英語/日本語ナレーション・字幕対応",
-              "配信面に合わせたアスペクト＆テンポを最適化",
-            ]}
-            ctaLabel="制作の相談"
-            ctaHref="#contact"
-            accent="linear-gradient(135deg, rgba(255,138,0,.25), rgba(0,229,255,.20))"
-          />
-
-          <ServiceCard
-            badge="Music"
-            title="Music / Entertainment"
-            subtitle="MV・ライブ・アーティストのSNS設計"
-            points={[
-              "MV/ティザー/ライブ映像のクリエイティブ制作",
-              "リール連動のバイラル設計（ショート分解）",
-              "アーティストの世界観構築と海外向け展開",
-            ]}
-            ctaLabel="作品を見る"
-            ctaHref="#projects"
-            accent="linear-gradient(135deg, rgba(229,46,113,.25), rgba(255,138,0,.20))"
-          />
-        </div>
-
-        <style>{`
-          .services-section{
-            position:relative;
-            padding: 84px 20px 96px;
-            max-width: 1200px;
-            margin: 0 auto;
-          }
-          .sv-head{ text-align:center; margin-bottom: 28px; }
-          .pill{
-            display:inline-block; padding:6px 12px; border-radius:999px;
-            border:1px solid rgba(255,255,255,.18);
-            background:rgba(255,255,255,.05);
-            font-size:12px; letter-spacing:.12em; opacity:.85;
-          }
-          .sv-head h2{
-            margin:12px 0 10px; font-size:clamp(28px,4.6vw,44px);
-            font-weight:900; letter-spacing:-.02em;
-            background:linear-gradient(90deg,#fff,rgba(255,255,255,.7));
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-          }
-          .sv-head p{
-            margin:0 auto; max-width:760px; opacity:.82; line-height:1.8;
-          }
-          .hide-sm{ display:none; }
-          @media (min-width: 760px){ .hide-sm{ display:inline; } }
-
-          .sv-row{
-            display:grid; gap:18px; grid-template-columns:1fr;
-            margin-top: 28px;
-          }
-          @media (min-width: 920px){
-            .sv-row{ grid-template-columns: repeat(3, 1fr); gap:22px; }
-          }
-
-          .s-card{
-            position:relative; overflow:hidden;
-            border-radius:22px; padding:18px; min-height: 260px;
-            background: rgba(255,255,255,.04);
-            border:1px solid rgba(255,255,255,.12);
-            transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
-          }
-          .s-card::before{
-            content:""; position:absolute; inset:-30% -30%;
-            background: var(--accent, linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.06)));
-            filter: blur(40px); opacity:.6; transition: opacity .35s; pointer-events:none;
-          }
-          .s-card:hover{
-            transform: translateY(-8px);
-            border-color: rgba(255,255,255,.24);
-            box-shadow: 0 24px 60px rgba(0,0,0,.45);
-          }
-          .s-badge{
-            display:inline-flex; align-items:center; gap:8px; font-size:12px;
-            padding:6px 10px; border-radius:999px;
-            border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.06);
-            opacity:.9;
-          }
-          .s-title{ margin:10px 0 2px; font-weight:900; font-size:20px; }
-          .s-sub{ margin:0 0 10px; opacity:.8; font-size:13px; }
-          .s-list{ margin:12px 0 16px; padding-left: 18px; opacity:.9; }
-          .s-list li{ margin:6px 0; }
-          .s-cta{
-            display:inline-block; padding:10px 14px; border-radius:14px;
-            border:1px solid rgba(255,255,255,.24); color:#fff; font-weight:700;
-          }
-          .s-cta:hover{
-            background: rgba(255,255,255,.08);
-          }
-        `}</style>
-      </section>
+      <ServicesShowcase />
 
       {/* ===== Members（横3並び） ===== */}
       <section id="members" className="members-section">
