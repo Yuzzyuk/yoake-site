@@ -4,7 +4,8 @@ import ServicesShowcase from "../components/ServicesShowcase";
 
 export default function Home() {
   return (
-    <div>
+    <>
+      {/* ===== Hero（あなたの元コードそのまま） ===== */}
       <main
         style={{
           minHeight: "100vh",
@@ -74,7 +75,7 @@ export default function Home() {
           </p>
 
           <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
-            
+            <a
               href="#projects"
               style={{
                 padding: "12px 20px",
@@ -83,12 +84,11 @@ export default function Home() {
                 background:
                   "linear-gradient(90deg, rgba(255,138,0,0.95), rgba(229,46,113,0.95))",
                 color: "#0c0c0f",
-                textDecoration: "none",
               }}
             >
               VIEW PROJECTS
             </a>
-            
+            <a
               href="#members"
               style={{
                 padding: "12px 20px",
@@ -96,12 +96,11 @@ export default function Home() {
                 fontWeight: 700,
                 border: "1px solid rgba(255,255,255,0.2)",
                 color: "white",
-                textDecoration: "none",
               }}
             >
               MEET THE TEAM
             </a>
-            
+            <a
               href="#contact"
               style={{
                 padding: "12px 20px",
@@ -109,7 +108,6 @@ export default function Home() {
                 fontWeight: 700,
                 border: "1px solid rgba(255,255,255,0.2)",
                 color: "white",
-                textDecoration: "none",
               }}
             >
               CONTACT
@@ -120,106 +118,153 @@ export default function Home() {
 
       <ServicesShowcase />
 
-      <section id="members">
-        <div
-          style={{
-            position: "relative",
-            padding: "92px 20px",
-            maxWidth: 1200,
-            margin: "0 auto",
-          }}
-        >
-          <div style={{ textAlign: "center", marginBottom: "32px" }}>
-            <div
-              style={{
-                display: "inline-block",
-                padding: "6px 12px",
-                borderRadius: 999,
-                border: "1px solid rgba(255,255,255,.18)",
-                background: "rgba(255,255,255,.05)",
-                fontSize: 12,
-                letterSpacing: ".12em",
-                opacity: 0.85,
-              }}
-            >
-              OUR CREATIVE MEMBERS
-            </div>
-            <h2
-              style={{
-                margin: "10px 0 8px",
-                fontSize: "clamp(28px,4.6vw,44px)",
-                fontWeight: 900,
-                letterSpacing: "-0.02em",
-                background: "linear-gradient(90deg,#fff,rgba(255,255,255,.7))",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              チームで"世界観"を届ける
-            </h2>
-            <p
-              style={{
-                margin: "0 auto",
-                maxWidth: 760,
-                opacity: 0.8,
-                lineHeight: 1.7,
-              }}
-            >
-              登録者20万人級のYouTuber × SNSマーケ × 映像制作。熱量をそのまま世界へ。
-            </p>
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gap: 18,
-              gridTemplateColumns: "1fr",
-            }}
-            className="members-grid"
-          >
-            <MemberCard
-              img="/Yuzzy.jpg"
-              name="Yuzzy"
-              role="SNS Advisor / Consulting & Marketing"
-              lines={[
-                "YouTube登録者20万人（総再生4,500万回）",
-                "X 4万人 / Instagram 1.4万人",
-                "TOEFL, Notion, Duolingo, 講談社, 角川, 静岡県 等と案件実績",
-                "Minerva University 卒。日英バイリンガルで幅広く活動",
-              ]}
-            />
-            <MemberCard
-              img="/Mick.jpg"
-              name="Mick"
-              role="Visual Storyteller / Filming & Editing"
-              lines={[
-                "YouTube 20万人 / TikTok 5万人",
-                "社会実験動画が1,300万再生突破",
-                "ユニバーサルミュージック案件 / Magide2023 Grand Champion",
-                "Asuka Louis名義で音楽活動。最新作がオルタナTop20",
-              ]}
-            />
-            <MemberCard
-              img="/Rin.jpg"
-              name="Rintato"
-              role="SNS Advisor / Video Editor"
-              lines={[
-                "慶應経済PEARL 在学、日英バイリンガル",
-                "大手カメラ/高級ホテル/航空会社などと制作実績",
-                "ホテル系IG運用で半年1.3万人増",
-                "150万回超の動画制作実績",
-              ]}
-            />
-          </div>
+      {/* ===== Members（横3並び） ===== */}
+      <section id="members" className="members-section">
+        <div className="members-head">
+          <div className="pill">OUR CREATIVE MEMBERS</div>
+          <h2>チームで“世界観”を届ける</h2>
+          <p>登録者20万人級のYouTuber × SNSマーケ × 映像制作。熱量をそのまま世界へ。</p>
         </div>
+
+        <div className="row">
+          <MemberCard
+            img="/Yuzzy.jpg"
+            name="Yuzzy"
+            role="SNS Advisor / Consulting & Marketing"
+            imgPosition="object-top"
+            lines={[
+              "YouTube登録者20万人（総再生4,500万回）",
+              "X 4万人 / Instagram 1.4万人",
+              "TOEFL, Notion, Duolingo, 講談社, 角川, 静岡県 等と案件実績",
+              "Minerva University 卒。日英バイリンガルで幅広く活動",
+            ]}
+          />
+          <MemberCard
+            img="/Mick.jpg"
+            name="Mick"
+            role="Visual Storyteller / Filming & Editing"
+            lines={[
+              "YouTube 20万人 / TikTok 5万人",
+              "社会実験動画が1,300万再生突破",
+              "ユニバーサルミュージック案件 / Magide2023 Grand Champion",
+              "Asuka Louis名義で音楽活動。最新作がオルタナTop20",
+            ]}
+          />
+          <MemberCard
+            img="/Rin.jpg"
+            name="Rintato"
+            role="SNS Advisor / Video Editor"
+            lines={[
+              "慶應経済PEARL 在学、日英バイリンガル",
+              "大手カメラ/高級ホテル/航空会社などと制作実績",
+              "ホテル系IG運用で半年1.3万人増",
+              "150万回超の動画制作実績",
+            ]}
+          />
+        </div>
+
+        <style>{`
+          .members-section{
+            position: relative;
+            padding: 92px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+          .members-section::before{
+            content:"";
+            position:absolute; inset:-10% -20% auto -20%;
+            height: 420px;
+            background:
+              radial-gradient(600px 200px at 50% 0%, rgba(229,46,113,.20), transparent 70%),
+              radial-gradient(500px 220px at 20% 0%, rgba(0,229,255,.12), transparent 70%),
+              radial-gradient(500px 220px at 80% 0%, rgba(255,138,0,.12), transparent 70%);
+            filter: blur(40px);
+            pointer-events:none;
+          }
+          .members-head{
+            text-align:center;
+            margin-bottom: 32px;
+          }
+          .pill{
+            display:inline-block; padding:6px 12px; border-radius:999px;
+            border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.05);
+            font-size:12px; letter-spacing:.12em; opacity:.85;
+          }
+          .members-head h2{
+            margin:10px 0 8px; font-size:clamp(28px,4.6vw,44px);
+            font-weight:900; letter-spacing:-.02em;
+            background:linear-gradient(90deg,#fff,rgba(255,255,255,.7));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+          }
+          .members-head p{
+            margin:0 auto; max-width:760px; opacity:.8; line-height:1.7;
+          }
+          .row{
+            display:grid; gap:18px; grid-template-columns:1fr;
+          }
+          @media (min-width: 860px){
+            .row{ grid-template-columns: repeat(3, 1fr); gap:22px; }
+          }
+          .card{
+            position:relative;
+            border-radius: 22px;
+            overflow:hidden;
+            padding:14px;
+            background: rgba(255,255,255,.04);
+            border:1px solid rgba(255,255,255,.12);
+            transform-style: preserve-3d;
+            transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
+          }
+          .card::before{
+            content:"";
+            position:absolute; inset: -40% -40%;
+            background: conic-gradient(from 0deg, rgba(255,138,0,.18), rgba(229,46,113,.18), rgba(0,229,255,.18), rgba(255,138,0,.18));
+            filter: blur(40px);
+            transform: translateZ(-1px);
+            opacity:.0; transition: opacity .35s;
+            pointer-events:none;
+          }
+          .card::after{
+            content:"";
+            position:absolute; inset:0;
+            background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.25) 50%, transparent 60%);
+            transform: translateX(-120%) skewX(-12deg);
+            transition: transform .7s ease;
+            pointer-events:none;
+          }
+          .card:hover{
+            transform: translateY(-8px) rotateX(1deg);
+            box-shadow: 0 24px 60px rgba(0,0,0,.45);
+            border-color: rgba(255,255,255,.25);
+          }
+          .card:hover::before{ opacity:.8; }
+          .card:hover::after{ transform: translateX(120%) skewX(-12deg); }
+          .media{
+            width:100%; aspect-ratio: 4 / 3; object-fit: cover;
+            border-radius: 14px;
+            animation: float 7s ease-in-out infinite;
+          }
+          @keyframes float{
+            0%,100%{ transform: translateY(0px); }
+            50%{ transform: translateY(-6px); }
+          }
+          .body{ padding:12px 6px 6px; }
+          .name{ margin:10px 0 2px; font-weight:800; font-size:20px; }
+          .role{ margin:0 0 10px; opacity:.8; font-size:13px; letter-spacing:.01em; }
+          .list{ margin:0; padding-left: 18px; opacity:.88; }
+          .list li{ margin:6px 0; }
+        `}</style>
       </section>
 
+      {/* ===== 実績（ロゴ・マルキー） ===== */}
       <ClientsMarquee />
 
+      {/* ===== Projects（既存の ProjectsSection を呼ぶ） ===== */}
       <section id="projects">
         <ProjectsSection />
       </section>
 
+      {/* ===== Contact（後で本実装） ===== */}
       <section
         id="contact"
         style={{
@@ -233,9 +278,10 @@ export default function Home() {
         <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", marginBottom: 8, fontWeight: 900 }}>
           Get an estimate for your upcoming project
         </h2>
-        <p>お問い合わせフォームは後で実装します。まずはメンバー紹介をご確認ください。</p>
+        <p>問い合わせフォームは後で実装します。まずはメンバー紹介をご確認ください。</p>
       </section>
 
+      {/* ===== Footer ===== */}
       <footer
         style={{
           borderTop: "1px solid rgba(255,255,255,.12)",
@@ -256,100 +302,56 @@ export default function Home() {
         >
           <div>© {new Date().getFullYear()} YOAKE</div>
           <nav style={{ display: "flex", gap: 16 }}>
-            <a href="#services" style={{ color: "#fff", textDecoration: "none" }}>
-              Services
-            </a>
-            <a href="#members" style={{ color: "#fff", textDecoration: "none" }}>
-              Members
-            </a>
-            <a href="#projects" style={{ color: "#fff", textDecoration: "none" }}>
-              Projects
-            </a>
-            <a href="#contact" style={{ color: "#fff", textDecoration: "none" }}>
-              Contact
-            </a>
+            <a href="#services" style={{ color: "#fff" }}>Services</a>
+            <a href="#members" style={{ color: "#fff" }}>Members</a>
+            <a href="#projects" style={{ color: "#fff" }}>Projects</a>
+            <a href="#contact" style={{ color: "#fff" }}>Contact</a>
           </nav>
         </div>
       </footer>
-
-      <style jsx>{`
-        @media (min-width: 860px) {
-          .members-grid {
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 22px !important;
-          }
-        }
-      `}</style>
-    </div>
+    </>
   );
 }
 
-function MemberCard(props: { img: string; name: string; role: string; lines: string[] }) {
+/* ===== Service Card（同ファイル内：Services用） ===== */
+function ServiceCard(props: {
+  badge: string;
+  title: string;
+  subtitle: string;
+  points: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  accent?: string;
+}) {
   return (
-    <article
-      style={{
-        position: "relative",
-        borderRadius: 22,
-        overflow: "hidden",
-        padding: 14,
-        background: "rgba(255,255,255,.04)",
-        border: "1px solid rgba(255,255,255,.12)",
-        transition: "transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s",
-      }}
-      className="member-card"
-    >
+    <article className="s-card" style={{ ["--accent" as any]: props.accent }}>
+      <div className="s-badge">{props.badge}</div>
+      <div className="s-title">{props.title}</div>
+      <div className="s-sub">{props.subtitle}</div>
+      <ul className="s-list">
+        {props.points.map((p, i) => <li key={i}>{p}</li>)}
+      </ul>
+      <a className="s-cta" href={props.ctaHref}>{props.ctaLabel}</a>
+    </article>
+  );
+}
+
+/* ===== Member Card（既存） ===== */
+function MemberCard(props: { img: string; name: string; role: string; lines: string[]; imgPosition?: string }) {
+  return (
+    <article className="card">
       <img
         src={props.img}
         alt={props.name}
-        style={{
-          width: "100%",
-          aspectRatio: "4 / 3",
-          objectFit: "cover",
-          borderRadius: 14,
-        }}
+        className={`media ${props.imgPosition || ""}`}
       />
-      <div style={{ padding: "12px 6px 6px" }}>
-        <div
-          style={{
-            margin: "10px 0 2px",
-            fontWeight: 800,
-            fontSize: 20,
-          }}
-        >
-          {props.name}
-        </div>
-        <div
-          style={{
-            margin: "0 0 10px",
-            opacity: 0.8,
-            fontSize: 13,
-            letterSpacing: ".01em",
-          }}
-        >
-          {props.role}
-        </div>
-        <ul
-          style={{
-            margin: 0,
-            paddingLeft: 18,
-            opacity: 0.88,
-          }}
-        >
-          {props.lines.map((t, i) => (
-            <li key={i} style={{ margin: "6px 0" }}>
-              {t}
-            </li>
-          ))}
+      <div className="body">
+        <div className="name">{props.name}</div>
+        <div className="role">{props.role}</div>
+        <ul className="list">
+          {props.lines.map((t, i) => <li key={i}>{t}</li>)}
         </ul>
       </div>
-
-      <style jsx>{`
-        .member-card:hover {
-          transform: translateY(-8px) rotateX(1deg);
-          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-          border-color: rgba(255, 255, 255, 0.25);
-        }
-      `}</style>
     </article>
   );
 }
