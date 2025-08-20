@@ -5,280 +5,416 @@ import ServicesShowcase from "../components/ServicesShowcase";
 export default function Home() {
   return (
     <>
-      {/* 動的背景 */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-black"></div>
-        <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-orange-500/5 via-transparent to-pink-500/5"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse [animation-delay:2s]"></div>
-      </div>
-
-      {/* ナビゲーション */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/20 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-center py-6">
-            <div className="text-3xl font-black tracking-tight">
-              <span className="bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
-                YOAKE
-              </span>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              {['Services', 'Projects', 'Team', 'Contact'].map((item) => (
-                <a 
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="relative px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-all duration-300 group rounded-lg hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-pink-500/10"
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-            <button className="md:hidden w-8 h-8 flex flex-col justify-center items-center space-y-1">
-              <div className="w-6 h-0.5 bg-white/80"></div>
-              <div className="w-6 h-0.5 bg-white/80"></div>
-              <div className="w-6 h-0.5 bg-white/80"></div>
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* ヒーローセクション */}
-      <main className="relative min-h-screen flex items-center justify-center">
-        <div className="max-w-7xl mx-auto px-6 text-center py-32">
-          {/* ステータスバッジ */}
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full backdrop-blur-sm bg-white/5 border border-white/10 mb-8 group hover:border-orange-500/30 transition-all duration-300">
-            <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 animate-pulse"></div>
-            <span className="text-sm font-medium tracking-wider uppercase text-gray-300">
-              Let its value soar to the world
-            </span>
+      {/* ===== Hero（あなたの元コードそのまま） ===== */}
+      <main
+        style={{
+          minHeight: "100vh",
+          display: "grid",
+          placeItems: "center",
+          background:
+            "radial-gradient(1000px 500px at 50% -10%, rgba(255,255,255,0.06), transparent), linear-gradient(135deg, #0f0f0f 0%, #181832 60%, #0f0f0f 100%)",
+          textAlign: "center",
+          padding: "64px 24px",
+        }}
+      >
+        <div style={{ maxWidth: 900 }}>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              padding: "6px 12px",
+              borderRadius: 999,
+              border: "1px solid rgba(255,255,255,0.15)",
+              background: "rgba(255,255,255,0.05)",
+              fontSize: 12,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              opacity: 0.9,
+            }}
+          >
+            <span
+              style={{
+                width: 6,
+                height: 6,
+                borderRadius: 999,
+                background:
+                  "linear-gradient(90deg, rgba(255,138,0,1), rgba(229,46,113,1))",
+                display: "inline-block",
+              }}
+            />
+            Let its value soar to the world
           </div>
 
-          {/* メインタイトル */}
-          <div className="relative mb-8">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none">
-              <span className="block bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent mb-4 animate-pulse">
-                YOAKE
-              </span>
-              <span className="block text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-400 via-gray-200 to-gray-400 bg-clip-text text-transparent">
-                Hyper-Creative Studio
-              </span>
-            </h1>
-            {/* グロー効果 */}
-            <div className="absolute inset-0 text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none opacity-20 blur-xl pointer-events-none">
-              <span className="block bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent mb-4">
-                YOAKE
-              </span>
-            </div>
-          </div>
+          <h1
+            style={{
+              margin: "18px 0 8px",
+              fontSize: "clamp(40px, 7vw, 96px)",
+              lineHeight: 1.05,
+              fontWeight: 900,
+              letterSpacing: "-0.02em",
+              background: "linear-gradient(90deg, #ffffff, rgba(255,255,255,0.6))",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            YOAKE — Hyper-Creative Studio
+          </h1>
 
-          {/* サブタイトル */}
-          <p className="text-xl md:text-2xl lg:text-3xl text-gray-400 mb-12 max-w-5xl mx-auto leading-relaxed">
-            <span className="bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-transparent font-semibold">SNSの爆発力</span> × <span className="bg-gradient-to-r from-pink-500 to-cyan-400 bg-clip-text text-transparent font-semibold">シネマティックな映像</span>で、<br className="hidden md:block" />
+          <p
+            style={{
+              margin: "12px auto 28px",
+              maxWidth: 720,
+              fontSize: "clamp(16px, 2.2vw, 20px)",
+              color: "rgba(255,255,255,0.75)",
+              lineHeight: 1.7,
+            }}
+          >
+            SNSの爆発力 × シネマティックな映像で、<br />
             プロダクトの熱量を世界へ
           </p>
 
-          {/* CTAボタン */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button className="group relative px-10 py-4 rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-orange-500 bg-[length:200%_100%] font-bold text-black text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25 hover:bg-[position:100%_0%]">
-              <span className="relative z-10 flex items-center gap-2">
-                VIEW PROJECTS
-                <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </span>
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 group-hover:translate-x-full transition-transform duration-1000"></div>
-            </button>
+          <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
             
-            <button className="group relative px-10 py-4 rounded-2xl backdrop-blur-sm bg-white/5 border border-white/10 font-bold text-lg transition-all duration-500 hover:scale-105 hover:border-white/30 hover:bg-white/10">
-              <span className="relative z-10 flex items-center gap-2">
-                MEET THE TEAM
-                <svg className="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </span>
-            </button>
-          </div>
-
-          {/* 統計情報 */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-4xl mx-auto">
-            {[
-              { number: "20M+", label: "YouTube登録者" },
-              { number: "4.5B+", label: "総再生回数" },
-              { number: "50+", label: "企業案件実績" },
-              { number: "3", label: "言語対応" }
-            ].map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="text-3xl md:text-4xl font-black bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-gray-400 font-medium">{stat.label}</div>
-              </div>
-            ))}
+              href="#projects"
+              style={{
+                padding: "12px 20px",
+                borderRadius: 999,
+                fontWeight: 700,
+                background:
+                  "linear-gradient(90deg, rgba(255,138,0,0.95), rgba(229,46,113,0.95))",
+                color: "#0c0c0f",
+                textDecoration: "none",
+              }}
+            >
+              VIEW PROJECTS
+            </a>
+            
+              href="#members"
+              style={{
+                padding: "12px 20px",
+                borderRadius: 999,
+                fontWeight: 700,
+                border: "1px solid rgba(255,255,255,0.2)",
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              MEET THE TEAM
+            </a>
+            
+              href="#contact"
+              style={{
+                padding: "12px 20px",
+                borderRadius: 999,
+                fontWeight: 700,
+                border: "1px solid rgba(255,255,255,0.2)",
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              CONTACT
+            </a>
           </div>
         </div>
-
-        {/* フローティング要素 */}
-        <div className="absolute top-1/4 left-10 w-20 h-20 rounded-full bg-gradient-to-r from-orange-400/20 to-pink-500/20 blur-xl animate-bounce [animation-duration:3s]"></div>
-        <div className="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-500/20 blur-xl animate-bounce [animation-duration:4s] [animation-delay:1s]"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 rounded-full bg-gradient-to-r from-purple-400/20 to-pink-500/20 blur-xl animate-bounce [animation-duration:5s] [animation-delay:2s]"></div>
       </main>
 
-      {/* サービス */}
       <ServicesShowcase />
 
-      {/* チームセクション */}
-      <section id="members" className="relative py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <div className="inline-block px-6 py-3 rounded-full backdrop-blur-sm bg-white/5 border border-white/10 text-sm font-medium tracking-wider uppercase mb-8">
-              OUR CREATIVE MEMBERS
-            </div>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
-              チームで"世界観"を届ける
-            </h2>
-            <p className="text-xl text-gray-400 max-w-4xl mx-auto">
-              登録者20万人級のYouTuber × SNSマーケ × 映像制作。熱量をそのまま世界へ。
-            </p>
+      {/* ===== Members（横3並び） ===== */}
+      <section id="members" style={{ position: "relative", padding: "92px 20px", maxWidth: 1200, margin: "0 auto" }}>
+        <div style={{ textAlign: "center", marginBottom: "32px" }}>
+          <div style={{
+            display: "inline-block", 
+            padding: "6px 12px", 
+            borderRadius: 999,
+            border: "1px solid rgba(255,255,255,.18)", 
+            background: "rgba(255,255,255,.05)",
+            fontSize: 12, 
+            letterSpacing: ".12em", 
+            opacity: .85
+          }}>
+            OUR CREATIVE MEMBERS
           </div>
+          <h2 style={{
+            margin: "10px 0 8px", 
+            fontSize: "clamp(28px,4.6vw,44px)",
+            fontWeight: 900, 
+            letterSpacing: "-.02em",
+            background: "linear-gradient(90deg,#fff,rgba(255,255,255,.7))",
+            WebkitBackgroundClip: "text", 
+            WebkitTextFillColor: "transparent"
+          }}>
+            チームで"世界観"を届ける
+          </h2>
+          <p style={{
+            margin: "0 auto", 
+            maxWidth: 760, 
+            opacity: .8, 
+            lineHeight: 1.7
+          }}>
+            登録者20万人級のYouTuber × SNSマーケ × 映像制作。熱量をそのまま世界へ。
+          </p>
+        </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Yuzzy",
-                role: "SNS Advisor / Consulting & Marketing",
-                img: "/Yuzzy.jpg",
-                stats: [
-                  "YouTube登録者20万人（総再生4,500万回）",
-                  "X 4万人 / Instagram 1.4万人", 
-                  "TOEFL, Notion, Duolingo等案件実績",
-                  "Minerva University卒。日英バイリンガル"
-                ]
-              },
-              {
-                name: "Mick", 
-                role: "Visual Storyteller / Filming & Editing",
-                img: "/Mick.jpg",
-                stats: [
-                  "YouTube 20万人 / TikTok 5万人",
-                  "社会実験動画が1,300万再生突破",
-                  "ユニバーサルミュージック案件実績",
-                  "Magide2023 Grand Champion"
-                ]
-              },
-              {
-                name: "Rintato",
-                role: "SNS Advisor / Video Editor", 
-                img: "/Rin.jpg",
-                stats: [
-                  "慶應経済PEARL在学、日英バイリンガル",
-                  "大手カメラ/高級ホテル等制作実績",
-                  "ホテル系IG運用で半年1.3万人増",
-                  "150万回超の動画制作実績"
-                ]
-              }
-            ].map((member, index) => (
-              <article key={index} className="group relative">
-                {/* グロー効果 */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-pink-500/0 to-cyan-400/0 group-hover:from-orange-500/20 group-hover:via-pink-500/20 group-hover:to-cyan-400/20 rounded-3xl blur-xl transition-all duration-500 -z-10"></div>
-                
-                <div className="relative overflow-hidden rounded-3xl backdrop-blur-sm bg-white/5 border border-white/10 group-hover:border-white/20 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-orange-500/10">
-                  {/* 画像部分 */}
-                  <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
-                    <img
-                      src={member.img}
-                      alt={member.name}
-                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                    
-                    {/* フローティングバッジ */}
-                    <div className="absolute top-4 right-4">
-                      <div className="px-3 py-1 rounded-full backdrop-blur-sm bg-white/10 border border-white/20 text-xs font-medium">
-                        Creator
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* コンテンツ部分 */}
-                  <div className="p-8">
-                    <h3 className="text-2xl font-black mb-2 bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-transparent">{member.name}</h3>
-                    <p className="text-gray-400 text-sm font-medium mb-6 leading-relaxed">{member.role}</p>
-                    
-                    <ul className="space-y-3">
-                      {member.stats.map((stat, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm text-gray-300">
-                          <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 mt-2 flex-shrink-0"></div>
-                          <span>{stat}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* SNSリンク */}
-                    <div className="flex gap-3 mt-6 pt-6 border-t border-white/10">
-                      {['YouTube', 'Instagram', 'X'].map((platform) => (
-                        <button key={platform} className="w-10 h-10 rounded-full backdrop-blur-sm bg-white/5 border border-white/10 flex items-center justify-center hover:border-orange-500/30 hover:bg-orange-500/10 transition-all duration-300 group/btn">
-                          <span className="text-xs font-medium group-hover/btn:text-orange-400 transition-colors">{platform[0]}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+        <div style={{
+          display: "grid", 
+          gap: 18, 
+          gridTemplateColumns: "1fr",
+          "@media (min-width: 860px)": {
+            gridTemplateColumns: "repeat(3, 1fr)", 
+            gap: 22
+          }
+        }}>
+          <MemberCard
+            img="/Yuzzy.jpg"
+            name="Yuzzy"
+            role="SNS Advisor / Consulting & Marketing"
+            lines={[
+              "YouTube登録者20万人（総再生4,500万回）",
+              "X 4万人 / Instagram 1.4万人",
+              "TOEFL, Notion, Duolingo, 講談社, 角川, 静岡県 等と案件実績",
+              "Minerva University 卒。日英バイリンガルで幅広く活動",
+            ]}
+          />
+          <MemberCard
+            img="/Mick.jpg"
+            name="Mick"
+            role="Visual Storyteller / Filming & Editing"
+            lines={[
+              "YouTube 20万人 / TikTok 5万人",
+              "社会実験動画が1,300万再生突破",
+              "ユニバーサルミュージック案件 / Magide2023 Grand Champion",
+              "Asuka Louis名義で音楽活動。最新作がオルタナTop20",
+            ]}
+          />
+          <MemberCard
+            img="/Rin.jpg"
+            name="Rintato"
+            role="SNS Advisor / Video Editor"
+            lines={[
+              "慶應経済PEARL 在学、日英バイリンガル",
+              "大手カメラ/高級ホテル/航空会社などと制作実績",
+              "ホテル系IG運用で半年1.3万人増",
+              "150万回超の動画制作実績",
+            ]}
+          />
         </div>
       </section>
 
-      {/* 実績 */}
+      {/* ===== 実績（ロゴ・マルキー） ===== */}
       <ClientsMarquee />
 
-      {/* プロジェクト */}
+      {/* ===== Projects（既存の ProjectsSection を呼ぶ） ===== */}
       <section id="projects">
         <ProjectsSection />
       </section>
 
-      {/* コンタクト */}
-      <section id="contact" className="relative py-32">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
-            Get an estimate for your<br />upcoming project
-          </h2>
-          <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
-            お問い合わせフォームは後で実装します。まずはメンバー紹介をご確認ください。
-          </p>
-          <button className="group relative px-12 py-5 rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-orange-500 bg-[length:200%_100%] font-bold text-black text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25 hover:bg-[position:100%_0%]">
-            <span className="relative z-10 flex items-center gap-3">
-              CONTACT US
-              <svg className="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </span>
-            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 group-hover:translate-x-full transition-transform duration-1000"></div>
-          </button>
-        </div>
+      {/* ===== Contact（後で本実装） ===== */}
+      <section
+        id="contact"
+        style={{
+          padding: "56px 20px",
+          maxWidth: 900,
+          margin: "0 auto",
+          textAlign: "center",
+          opacity: 0.85,
+        }}
+      >
+        <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", marginBottom: 8, fontWeight: 900 }}>
+          Get an estimate for your upcoming project
+        </h2>
+        <p>お問い合わせフォームは後で実装します。まずはメンバー紹介をご確認ください。</p>
       </section>
 
-      {/* フッター */}
-      <footer className="border-t border-white/10 py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="text-3xl font-black bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">YOAKE</div>
-            <nav className="flex flex-wrap gap-8 text-sm font-medium text-gray-400">
-              {['Services', 'Members', 'Projects', 'Contact'].map((item) => (
-                <a 
-                  key={item} 
-                  href={`#${item.toLowerCase()}`} 
-                  className="hover:text-white transition-colors duration-300 relative group"
-                >
-                  {item}
-                  <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-pink-500 group-hover:w-full transition-all duration-300"></div>
-                </a>
-              ))}
-            </nav>
-            <div className="text-gray-500 text-sm">© {new Date().getFullYear()} YOAKE Studio. All rights reserved.</div>
-          </div>
+      {/* ===== Footer ===== */}
+      <footer
+        style={{
+          borderTop: "1px solid rgba(255,255,255,.12)",
+          padding: "32px 20px",
+          opacity: 0.8,
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 1200,
+            margin: "0 auto",
+            display: "flex",
+            gap: 16,
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            fontSize: 14,
+          }}
+        >
+          <div>© {new Date().getFullYear()} YOAKE</div>
+          <nav style={{ display: "flex", gap: 16 }}>
+            <a href="#services" style={{ color: "#fff", textDecoration: "none" }}>Services</a>
+            <a href="#members" style={{ color: "#fff", textDecoration: "none" }}>Members</a>
+            <a href="#projects" style={{ color: "#fff", textDecoration: "none" }}>Projects</a>
+            <a href="#contact" style={{ color: "#fff", textDecoration: "none" }}>Contact</a>
+          </nav>
         </div>
       </footer>
+
+      {/* CSS */}
+      <style jsx global>{`
+        .members-section {
+          position: relative;
+          padding: 92px 20px;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        .members-section::before {
+          content: "";
+          position: absolute;
+          inset: -10% -20% auto -20%;
+          height: 420px;
+          background:
+            radial-gradient(600px 200px at 50% 0%, rgba(229,46,113,.20), transparent 70%),
+            radial-gradient(500px 220px at 20% 0%, rgba(0,229,255,.12), transparent 70%),
+            radial-gradient(500px 220px at 80% 0%, rgba(255,138,0,.12), transparent 70%);
+          filter: blur(40px);
+          pointer-events: none;
+        }
+        .members-head {
+          text-align: center;
+          margin-bottom: 32px;
+        }
+        .pill {
+          display: inline-block;
+          padding: 6px 12px;
+          border-radius: 999px;
+          border: 1px solid rgba(255,255,255,.18);
+          background: rgba(255,255,255,.05);
+          font-size: 12px;
+          letter-spacing: .12em;
+          opacity: .85;
+        }
+        .members-head h2 {
+          margin: 10px 0 8px;
+          font-size: clamp(28px,4.6vw,44px);
+          font-weight: 900;
+          letter-spacing: -.02em;
+          background: linear-gradient(90deg,#fff,rgba(255,255,255,.7));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .members-head p {
+          margin: 0 auto;
+          max-width: 760px;
+          opacity: .8;
+          line-height: 1.7;
+        }
+        .row {
+          display: grid;
+          gap: 18px;
+          grid-template-columns: 1fr;
+        }
+        @media (min-width: 860px) {
+          .row {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+          }
+        }
+        .card {
+          position: relative;
+          border-radius: 22px;
+          overflow: hidden;
+          padding: 14px;
+          background: rgba(255,255,255,.04);
+          border: 1px solid rgba(255,255,255,.12);
+          transform-style: preserve-3d;
+          transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
+        }
+        .card::before {
+          content: "";
+          position: absolute;
+          inset: -40% -40%;
+          background: conic-gradient(from 0deg, rgba(255,138,0,.18), rgba(229,46,113,.18), rgba(0,229,255,.18), rgba(255,138,0,.18));
+          filter: blur(40px);
+          transform: translateZ(-1px);
+          opacity: .0;
+          transition: opacity .35s;
+          pointer-events: none;
+        }
+        .card::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.25) 50%, transparent 60%);
+          transform: translateX(-120%) skewX(-12deg);
+          transition: transform .7s ease;
+          pointer-events: none;
+        }
+        .card:hover {
+          transform: translateY(-8px) rotateX(1deg);
+          box-shadow: 0 24px 60px rgba(0,0,0,.45);
+          border-color: rgba(255,255,255,.25);
+        }
+        .card:hover::before {
+          opacity: .8;
+        }
+        .card:hover::after {
+          transform: translateX(120%) skewX(-12deg);
+        }
+        .media {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          object-fit: cover;
+          border-radius: 14px;
+          animation: float 7s ease-in-out infinite;
+        }
+        @keyframes float {
+          0%,100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-6px);
+          }
+        }
+        .body {
+          padding: 12px 6px 6px;
+        }
+        .name {
+          margin: 10px 0 2px;
+          font-weight: 800;
+          font-size: 20px;
+        }
+        .role {
+          margin: 0 0 10px;
+          opacity: .8;
+          font-size: 13px;
+          letter-spacing: .01em;
+        }
+        .list {
+          margin: 0;
+          padding-left: 18px;
+          opacity: .88;
+        }
+        .list li {
+          margin: 6px 0;
+        }
+      `}</style>
     </>
+  );
+}
+
+/* ===== Member Card（既存） ===== */
+function MemberCard(props: { img: string; name: string; role: string; lines: string[] }) {
+  return (
+    <article className="card">
+      <img
+        src={props.img}
+        alt={props.name}
+        className="media"
+      />
+      <div className="body">
+        <div className="name">{props.name}</div>
+        <div className="role">{props.role}</div>
+        <ul className="list">
+          {props.lines.map((t, i) => <li key={i}>{t}</li>)}
+        </ul>
+      </div>
+    </article>
   );
 }
