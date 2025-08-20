@@ -8,12 +8,9 @@ export default function Home() {
       {/* 動的背景 */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-black"></div>
-        <div className="absolute inset-0 opacity-30" style={{
-          backgroundImage: `linear-gradient(45deg, transparent 25%, rgba(255,138,0,0.02) 50%, transparent 75%)`,
-          backgroundSize: '60px 60px'
-        }}></div>
+        <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-orange-500/5 via-transparent to-pink-500/5"></div>
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse [animation-delay:2s]"></div>
       </div>
 
       {/* ナビゲーション */}
@@ -30,10 +27,9 @@ export default function Home() {
                 <a 
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="relative px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-all duration-300 group"
+                  className="relative px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-all duration-300 group rounded-lg hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-pink-500/10"
                 >
                   {item}
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/10 group-hover:to-pink-500/10 transition-all duration-300"></div>
                 </a>
               ))}
             </div>
@@ -58,22 +54,22 @@ export default function Home() {
           </div>
 
           {/* メインタイトル */}
-          <h1 className="relative mb-8">
-            <div className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none">
-              <span className="block bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent mb-4">
+          <div className="relative mb-8">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none">
+              <span className="block bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent mb-4 animate-pulse">
                 YOAKE
               </span>
               <span className="block text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-400 via-gray-200 to-gray-400 bg-clip-text text-transparent">
                 Hyper-Creative Studio
               </span>
-            </div>
+            </h1>
             {/* グロー効果 */}
-            <div className="absolute inset-0 text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none opacity-20 blur-xl">
+            <div className="absolute inset-0 text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none opacity-20 blur-xl pointer-events-none">
               <span className="block bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent mb-4">
                 YOAKE
               </span>
             </div>
-          </h1>
+          </div>
 
           {/* サブタイトル */}
           <p className="text-xl md:text-2xl lg:text-3xl text-gray-400 mb-12 max-w-5xl mx-auto leading-relaxed">
@@ -83,7 +79,7 @@ export default function Home() {
 
           {/* CTAボタン */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button className="group relative px-10 py-4 rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-orange-500 font-bold text-black text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25" style={{backgroundSize: '200% 200%'}}>
+            <button className="group relative px-10 py-4 rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-orange-500 bg-[length:200%_100%] font-bold text-black text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25 hover:bg-[position:100%_0%]">
               <span className="relative z-10 flex items-center gap-2">
                 VIEW PROJECTS
                 <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,7 +89,7 @@ export default function Home() {
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 group-hover:translate-x-full transition-transform duration-1000"></div>
             </button>
             
-            <button className="group relative px-10 py-4 rounded-2xl backdrop-blur-sm bg-white/5 border border-white/10 font-bold text-lg transition-all duration-500 hover:scale-105 hover:border-white/30">
+            <button className="group relative px-10 py-4 rounded-2xl backdrop-blur-sm bg-white/5 border border-white/10 font-bold text-lg transition-all duration-500 hover:scale-105 hover:border-white/30 hover:bg-white/10">
               <span className="relative z-10 flex items-center gap-2">
                 MEET THE TEAM
                 <svg className="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -122,9 +118,9 @@ export default function Home() {
         </div>
 
         {/* フローティング要素 */}
-        <div className="absolute top-1/4 left-10 w-20 h-20 rounded-full bg-gradient-to-r from-orange-400/20 to-pink-500/20 blur-xl" style={{animation: 'float 7s ease-in-out infinite'}}></div>
-        <div className="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-500/20 blur-xl" style={{animation: 'float 7s ease-in-out infinite', animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 rounded-full bg-gradient-to-r from-purple-400/20 to-pink-500/20 blur-xl" style={{animation: 'float 7s ease-in-out infinite', animationDelay: '2s'}}></div>
+        <div className="absolute top-1/4 left-10 w-20 h-20 rounded-full bg-gradient-to-r from-orange-400/20 to-pink-500/20 blur-xl animate-bounce [animation-duration:3s]"></div>
+        <div className="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-500/20 blur-xl animate-bounce [animation-duration:4s] [animation-delay:1s]"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 rounded-full bg-gradient-to-r from-purple-400/20 to-pink-500/20 blur-xl animate-bounce [animation-duration:5s] [animation-delay:2s]"></div>
       </main>
 
       {/* サービス */}
@@ -183,9 +179,9 @@ export default function Home() {
             ].map((member, index) => (
               <article key={index} className="group relative">
                 {/* グロー効果 */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-pink-500/0 to-cyan-400/0 group-hover:from-orange-500/20 group-hover:via-pink-500/20 group-hover:to-cyan-400/20 rounded-3xl blur-xl transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-pink-500/0 to-cyan-400/0 group-hover:from-orange-500/20 group-hover:via-pink-500/20 group-hover:to-cyan-400/20 rounded-3xl blur-xl transition-all duration-500 -z-10"></div>
                 
-                <div className="relative overflow-hidden rounded-3xl backdrop-blur-sm bg-white/5 border border-white/10 group-hover:border-white/20 transition-all duration-500 group-hover:-translate-y-2">
+                <div className="relative overflow-hidden rounded-3xl backdrop-blur-sm bg-white/5 border border-white/10 group-hover:border-white/20 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-orange-500/10">
                   {/* 画像部分 */}
                   <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
                     <img
@@ -220,7 +216,7 @@ export default function Home() {
                     {/* SNSリンク */}
                     <div className="flex gap-3 mt-6 pt-6 border-t border-white/10">
                       {['YouTube', 'Instagram', 'X'].map((platform) => (
-                        <button key={platform} className="w-10 h-10 rounded-full backdrop-blur-sm bg-white/5 border border-white/10 flex items-center justify-center hover:border-orange-500/30 transition-all duration-300 group/btn">
+                        <button key={platform} className="w-10 h-10 rounded-full backdrop-blur-sm bg-white/5 border border-white/10 flex items-center justify-center hover:border-orange-500/30 hover:bg-orange-500/10 transition-all duration-300 group/btn">
                           <span className="text-xs font-medium group-hover/btn:text-orange-400 transition-colors">{platform[0]}</span>
                         </button>
                       ))}
@@ -250,7 +246,7 @@ export default function Home() {
           <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
             お問い合わせフォームは後で実装します。まずはメンバー紹介をご確認ください。
           </p>
-          <button className="group relative px-12 py-5 rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-orange-500 font-bold text-black text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25" style={{backgroundSize: '200% 200%'}}>
+          <button className="group relative px-12 py-5 rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-orange-500 bg-[length:200%_100%] font-bold text-black text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25 hover:bg-[position:100%_0%]">
             <span className="relative z-10 flex items-center gap-3">
               CONTACT US
               <svg className="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -283,17 +279,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-        }
-      `}</style>
     </>
   );
 }
