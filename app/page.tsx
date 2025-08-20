@@ -6,45 +6,69 @@ export default function Home() {
   return (
     <>
       {/* ===== Hero（あなたの元コードそのまま） ===== */}
-      <main
+   <main
+  style={{
+    minHeight: "100vh",
+    display: "grid",
+    placeItems: "center",
+    background: "#ffffff", // ← 白ベースに変更
+    textAlign: "center",
+    padding: "64px 24px",
+  }}
+>
+  <div style={{ maxWidth: 900 }}>
+    <div
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 8,
+        padding: "6px 12px",
+        borderRadius: 999,
+        border: "1px solid rgba(0,0,0,0.15)",
+        background: "rgba(0,0,0,0.05)",
+        fontSize: 12,
+        letterSpacing: "0.12em",
+        textTransform: "uppercase",
+        color: "#333", // ← 黒文字
+      }}
+    >
+      <span
         style={{
-          minHeight: "100vh",
-          display: "grid",
-          placeItems: "center",
-          background:
-            "radial-gradient(1000px 500px at 50% -10%, rgba(255,255,255,0.06), transparent), linear-gradient(135deg, #0f0f0f 0%, #181832 60%, #0f0f0f 100%)",
-          textAlign: "center",
-          padding: "64px 24px",
+          width: 6,
+          height: 6,
+          borderRadius: 999,
+          background: "linear-gradient(90deg, rgba(255,138,0,1), rgba(229,46,113,1))",
+          display: "inline-block",
         }}
-      >
-        <div style={{ maxWidth: 900 }}>
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              padding: "6px 12px",
-              borderRadius: 999,
-              border: "1px solid rgba(255,255,255,0.15)",
-              background: "rgba(255,255,255,0.05)",
-              fontSize: 12,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              opacity: 0.9,
-            }}
-          >
-            <span
-              style={{
-                width: 6,
-                height: 6,
-                borderRadius: 999,
-                background:
-                  "linear-gradient(90deg, rgba(255,138,0,1), rgba(229,46,113,1))",
-                display: "inline-block",
-              }}
-            />
-            Let its value soar to the world
-          </div>
+      />
+      Let its value soar to the world
+    </div>
+
+    <h1
+      style={{
+        margin: "18px 0 8px",
+        fontSize: "clamp(40px, 7vw, 96px)",
+        lineHeight: 1.05,
+        fontWeight: 900,
+        letterSpacing: "-0.02em",
+        color: "#111", // ← 白グラデから黒文字に
+      }}
+    >
+      YOAKE — Hyper-Creative Studio
+    </h1>
+
+    <p
+      style={{
+        margin: "12px auto 28px",
+        maxWidth: 720,
+        fontSize: "clamp(16px, 2.2vw, 20px)",
+        color: "#555", // ← グレー文字に
+        lineHeight: 1.7,
+      }}
+    >
+      SNSの爆発力 × シネマティックな映像で、<br />
+      プロダクトの熱量を世界へ
+    </p>
 
           <h1
             style={{
