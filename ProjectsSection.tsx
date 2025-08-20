@@ -1,22 +1,15 @@
 // /ProjectsSection.tsx
 import Script from "next/script";
 
-/**
- * 使い方メモ
- * - /public/projects/ にサムネ(横長でも縦長でもOK)を入れると、左パネルの背面に“ぼかし背景”として自動使用。
- * - サムネが無い項目はフェールセーフでグラデ背景になります（エラーになりません）。
- * - Instagram埋め込みのリンクはそのまま使えます（blockquote + embed.js）。
- */
-
 type Project = {
   title: string;
   client: string;
   permalink: string;    // Instagram 投稿URL
   thumb?: string;       // /public/projects/xxx.jpg（任意）
-  purpose: string[];    // 海外展開/ブランディング/UGC など
-  metrics?: string[];   // KPI小さく（再生・CV・増加など）
-  role?: string[];      // 担当（Strategy/Filming/Editing/SNS Ops など）
-  platform?: string[];  // IG/TikTok/YouTube 等
+  purpose: string[];
+  metrics?: string[];
+  role?: string[];
+  platform?: string[];
 };
 
 const projects: Project[] = [
@@ -69,10 +62,8 @@ export default function ProjectsSection() {
         <div className="pill">WORK / PROJECTS</div>
         <h2>目的ドリブンで成果に繋げる</h2>
         <p className="sub">
-          海外展開 / ブランディング / UGC誘発 など目的タグで探せます。リールは2本並び、横の余白は“背景演出”に変換。
+          海外展開 / ブランディング / UGC誘発 など目的タグで探せます。リールは2本並び、右に要点をまとめて表示します。
         </p>
-
-        {/* 目的タグ（見た目だけのピル。将来フィルタ化してもOK） */}
         <div className="tags">
           {["海外展開", "ブランディング", "UGC", "ホテル/観光", "ガジェット"].map((t) => (
             <span key={t} className="tag">{t}</span>
@@ -91,14 +82,13 @@ export default function ProjectsSection() {
                 : undefined
             }
           >
-            {/* 左：埋め込み（縦長を想定）。背面はぼかし背景（スマートフィル） */}
+            {/* 左：埋め込み */}
             <div className="left">
               <div className="embedShell">
                 <blockquote
                   className="instagram-media"
                   data-instgrm-permalink={p.permalink}
                   data-instgrm-version="14"
-                  // data-instgrm-captioned // ← 必要ならキャプション付き
                   style={{
                     background: "#FFF",
                     border: 0,
@@ -112,7 +102,7 @@ export default function ProjectsSection() {
               </div>
             </div>
 
-            {/* 右：サイドパネル（B2B向けの情報小出し） */}
+            {/* 右：B2Bサイド情報 */}
             <div className="right">
               <div className="meta">
                 <div className="client">{p.client}</div>
@@ -125,21 +115,18 @@ export default function ProjectsSection() {
                       <div className="val">{p.purpose.join(" / ")}</div>
                     </div>
                   ) : null}
-
                   {p.metrics?.length ? (
                     <div className="row">
                       <div className="label">成果</div>
                       <div className="val">{p.metrics.join(" ・ ")}</div>
                     </div>
                   ) : null}
-
                   {p.role?.length ? (
                     <div className="row">
                       <div className="label">担当</div>
                       <div className="val">{p.role.join(" / ")}</div>
                     </div>
                   ) : null}
-
                   {p.platform?.length ? (
                     <div className="row">
                       <div className="label">Platform</div>
@@ -181,22 +168,22 @@ const styles = `
 }
 .head h2{
   margin:12px 0 6px; font-size: clamp(28px, 4.2vw, 40px);
-  font-weight:900; letter-spacing:-.02em;
+  font-weight:900; letter-spacing:-.02em; color:#0f1115;
 }
-.sub{ opacity:.8; max-width: 820px; margin: 0 auto; line-height: 1.7; }
+.sub{ color:#30343b; opacity:.9; max-width: 820px; margin: 0 auto; line-height: 1.75; }
 .tags{ margin-top:14px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
 .tag{
   padding:6px 10px; border-radius:999px; border:1px solid rgba(0,0,0,.08);
-  background:#fff; font-size:12px; opacity:.9;
+  background:#fff; font-size:12px; color:#111;
 }
 
 .grid{
   display: grid;
-  gap: 16px;
-  margin-top: 22px;
+  gap: 20px;
+  margin-top: 24px;
 }
 @media (min-width: 860px){
-  .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+  .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px; }
 }
 
 /* ===== カード：左が埋め込み、右がサイドパネル ===== */
@@ -216,7 +203,7 @@ const styles = `
   border-color: rgba(0,0,0,.12);
 }
 
-/* ぼかし背景（スマートフィル）※thumb があれば使用、無ければフェールバック */
+/* ぼかし背景（thumb があれば使用） */
 .card::before{
   content:"";
   position:absolute; inset:0;
@@ -224,20 +211,21 @@ const styles = `
   background-size: cover; background-position: center;
   filter: blur(22px) saturate(1.05);
   transform: scale(1.1);
-  opacity: .18;
+  opacity: .16;
   pointer-events: none;
 }
 
 /* レイアウト：モバイルは縦、デスクトップは左右 */
 .left, .right{ position: relative; z-index: 1; }
 @media (min-width: 980px){
-  .card{ grid-template-columns: minmax(0, 1fr) 340px; }
+  /* 左パネルを“固定幅”にして Instagram の最小幅問題を回避 */
+  .card{ grid-template-columns: 420px 1fr; }
 }
 
-/* 左：縦長埋め込みを“枠内で”綺麗に見せる */
+/* 左：縦長埋め込みを“枠内で”綺麗に見せる（はみ出し防止） */
 .embedShell{
   position: relative;
-  aspect-ratio: 9 / 16;      /* 縦長を確保 */
+  aspect-ratio: 9 / 16;
   width: 100%;
   margin: 14px;
   border-radius: 16px;
@@ -246,38 +234,41 @@ const styles = `
   background: linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.02));
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
 }
-.instagram-media{
-  position: absolute !important;
-  inset: 0 !important;
+/* Instagram が挿入する内側スタイルを強制的に無効化して収める */
+.instagram-media,
+.embedShell :global(.instagram-media),
+.embedShell :global(.instagram-media *) {
+  max-width: 100% !important;
+  min-width: 0 !important;
   width: 100% !important;
   height: 100% !important;
 }
 
-/* 右：B2Bサイド情報 */
+/* 右：可読性アップ */
 .right{
-  padding: 16px 16px 18px;
+  padding: 18px 18px 20px;
   display: grid;
   align-content: center;
+  color:#0f1115;
 }
-.meta{ background: #fff; }
 .client{
   font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
-  opacity: .75; margin-bottom: 4px;
+  opacity: .75; margin-bottom: 6px;
 }
 .title{
-  font-size: 18px; font-weight: 800; margin: 0 0 10px;
+  font-size: 20px; font-weight: 800; margin: 0 0 12px; color:#0b0d11;
 }
-.rows{ display: grid; gap: 8px; }
-.row{ display: grid; grid-template-columns: 82px 1fr; gap: 8px; align-items: start; }
+.rows{ display: grid; gap: 10px; }
+.row{ display: grid; grid-template-columns: 90px 1fr; gap: 10px; align-items: start; }
 .label{
-  font-size: 12px; opacity: .6;
+  font-size: 12px; color:#6b7280;
 }
 .val{
-  font-size: 14px; opacity: .9; line-height: 1.6;
+  font-size: 15px; color:#111; line-height: 1.7;
 }
 
 .ctaRow{
-  display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap;
+  display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap;
 }
 .btn{
   display:inline-flex; align-items:center; justify-content:center;
@@ -288,11 +279,11 @@ const styles = `
 .btn-primary{
   background: linear-gradient(90deg, rgba(255,138,0,0.95), rgba(229,46,113,0.95));
   color: #0c0c0f;
-  box-shadow: 0 8px 24px rgba(229,46,113,.25);
+  box-shadow: 0 10px 26px rgba(229,46,113,.25);
 }
 .btn-primary:hover{ transform: translateY(-1px); }
 .btn-ghost{
-  border: 1px solid rgba(0,0,0,.12);
+  border: 1px solid rgba(0,0,0,.14);
   color: #111; background: #fff;
 }
 .btn-ghost:hover{ transform: translateY(-1px); }
