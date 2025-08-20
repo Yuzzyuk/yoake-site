@@ -1,3 +1,4 @@
+"use client";
 import ClientsMarquee from "../components/ClientsMarquee";
 import ProjectsSection from "../ProjectsSection";
 import ServicesShowcase from "../components/ServicesShowcase";
