@@ -7,18 +7,23 @@ export default function Home() {
     <>
       {/* 動的背景 */}
       <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900 via-black to-black"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,138,0,0.02)_50%,transparent_75%)] bg-[length:60px_60px] animate-pulse"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-black"></div>
+        <div className="absolute inset-0 opacity-30" style={{
+          backgroundImage: `linear-gradient(45deg, transparent 25%, rgba(255,138,0,0.02) 50%, transparent 75%)`,
+          backgroundSize: '60px 60px'
+        }}></div>
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
 
       {/* ナビゲーション */}
-      <nav className="fixed top-0 w-full z-50 glass-effect border-b border-white/5">
-        <div className="container">
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/20 border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-center py-6">
             <div className="text-3xl font-black tracking-tight">
-              <span className="text-gradient">YOAKE</span>
+              <span className="bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
+                YOAKE
+              </span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
               {['Services', 'Projects', 'Team', 'Contact'].map((item) => (
@@ -43,9 +48,9 @@ export default function Home() {
 
       {/* ヒーローセクション */}
       <main className="relative min-h-screen flex items-center justify-center">
-        <div className="container text-center py-32">
+        <div className="max-w-7xl mx-auto px-6 text-center py-32">
           {/* ステータスバッジ */}
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-effect mb-8 group hover:border-orange-500/30 transition-all duration-300">
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full backdrop-blur-sm bg-white/5 border border-white/10 mb-8 group hover:border-orange-500/30 transition-all duration-300">
             <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 animate-pulse"></div>
             <span className="text-sm font-medium tracking-wider uppercase text-gray-300">
               Let its value soar to the world
@@ -55,37 +60,40 @@ export default function Home() {
           {/* メインタイトル */}
           <h1 className="relative mb-8">
             <div className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none">
-              <span className="block text-gradient mb-4">YOAKE</span>
-              <span className="block text-3xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-gray-200 to-gray-400">
+              <span className="block bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent mb-4">
+                YOAKE
+              </span>
+              <span className="block text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-400 via-gray-200 to-gray-400 bg-clip-text text-transparent">
                 Hyper-Creative Studio
               </span>
             </div>
             {/* グロー効果 */}
-            <div className="absolute inset-0 text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none opacity-30 blur-xl">
-              <span className="block text-gradient mb-4">YOAKE</span>
+            <div className="absolute inset-0 text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none opacity-20 blur-xl">
+              <span className="block bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent mb-4">
+                YOAKE
+              </span>
             </div>
           </h1>
 
           {/* サブタイトル */}
           <p className="text-xl md:text-2xl lg:text-3xl text-gray-400 mb-12 max-w-5xl mx-auto leading-relaxed">
-            <span className="text-gradient font-semibold">SNSの爆発力</span> × <span className="text-gradient font-semibold">シネマティックな映像</span>で、<br className="hidden md:block" />
+            <span className="bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-transparent font-semibold">SNSの爆発力</span> × <span className="bg-gradient-to-r from-pink-500 to-cyan-400 bg-clip-text text-transparent font-semibold">シネマティックな映像</span>で、<br className="hidden md:block" />
             プロダクトの熱量を世界へ
           </p>
 
           {/* CTAボタン */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button className="group relative px-10 py-4 rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-orange-500 bg-size-200 font-bold text-black text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25 animate-gradient">
+            <button className="group relative px-10 py-4 rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-orange-500 font-bold text-black text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25" style={{backgroundSize: '200% 200%'}}>
               <span className="relative z-10 flex items-center gap-2">
                 VIEW PROJECTS
                 <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
-              {/* シマー効果 */}
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 group-hover:translate-x-full transition-transform duration-1000"></div>
             </button>
             
-            <button className="group relative px-10 py-4 rounded-2xl glass-effect font-bold text-lg transition-all duration-500 hover:scale-105 hover:border-white/30">
+            <button className="group relative px-10 py-4 rounded-2xl backdrop-blur-sm bg-white/5 border border-white/10 font-bold text-lg transition-all duration-500 hover:scale-105 hover:border-white/30">
               <span className="relative z-10 flex items-center gap-2">
                 MEET THE TEAM
                 <svg className="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +112,7 @@ export default function Home() {
               { number: "3", label: "言語対応" }
             ].map((stat, index) => (
               <div key={index} className="text-center group">
-                <div className="text-3xl md:text-4xl font-black text-gradient mb-2 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-black bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                   {stat.number}
                 </div>
                 <div className="text-sm text-gray-400 font-medium">{stat.label}</div>
@@ -114,9 +122,9 @@ export default function Home() {
         </div>
 
         {/* フローティング要素 */}
-        <div className="absolute top-1/4 left-10 w-20 h-20 rounded-full bg-gradient-to-r from-orange-400/20 to-pink-500/20 blur-xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-500/20 blur-xl animate-float" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 rounded-full bg-gradient-to-r from-purple-400/20 to-pink-500/20 blur-xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/4 left-10 w-20 h-20 rounded-full bg-gradient-to-r from-orange-400/20 to-pink-500/20 blur-xl" style={{animation: 'float 7s ease-in-out infinite'}}></div>
+        <div className="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-500/20 blur-xl" style={{animation: 'float 7s ease-in-out infinite', animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 rounded-full bg-gradient-to-r from-purple-400/20 to-pink-500/20 blur-xl" style={{animation: 'float 7s ease-in-out infinite', animationDelay: '2s'}}></div>
       </main>
 
       {/* サービス */}
@@ -124,12 +132,12 @@ export default function Home() {
 
       {/* チームセクション */}
       <section id="members" className="relative py-32">
-        <div className="container">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
-            <div className="inline-block px-6 py-3 rounded-full glass-effect text-sm font-medium tracking-wider uppercase mb-8">
+            <div className="inline-block px-6 py-3 rounded-full backdrop-blur-sm bg-white/5 border border-white/10 text-sm font-medium tracking-wider uppercase mb-8">
               OUR CREATIVE MEMBERS
             </div>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-gradient">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
               チームで"世界観"を届ける
             </h2>
             <p className="text-xl text-gray-400 max-w-4xl mx-auto">
@@ -173,11 +181,11 @@ export default function Home() {
                 ]
               }
             ].map((member, index) => (
-              <article key={index} className="group relative card-hover">
+              <article key={index} className="group relative">
                 {/* グロー効果 */}
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-pink-500/0 to-cyan-400/0 group-hover:from-orange-500/20 group-hover:via-pink-500/20 group-hover:to-cyan-400/20 rounded-3xl blur-xl transition-all duration-500"></div>
                 
-                <div className="relative overflow-hidden rounded-3xl glass-effect group-hover:border-white/20 transition-all duration-500">
+                <div className="relative overflow-hidden rounded-3xl backdrop-blur-sm bg-white/5 border border-white/10 group-hover:border-white/20 transition-all duration-500 group-hover:-translate-y-2">
                   {/* 画像部分 */}
                   <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
                     <img
@@ -189,7 +197,7 @@ export default function Home() {
                     
                     {/* フローティングバッジ */}
                     <div className="absolute top-4 right-4">
-                      <div className="px-3 py-1 rounded-full glass-effect text-xs font-medium">
+                      <div className="px-3 py-1 rounded-full backdrop-blur-sm bg-white/10 border border-white/20 text-xs font-medium">
                         Creator
                       </div>
                     </div>
@@ -197,7 +205,7 @@ export default function Home() {
 
                   {/* コンテンツ部分 */}
                   <div className="p-8">
-                    <h3 className="text-2xl font-black mb-2 text-gradient">{member.name}</h3>
+                    <h3 className="text-2xl font-black mb-2 bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-transparent">{member.name}</h3>
                     <p className="text-gray-400 text-sm font-medium mb-6 leading-relaxed">{member.role}</p>
                     
                     <ul className="space-y-3">
@@ -212,7 +220,7 @@ export default function Home() {
                     {/* SNSリンク */}
                     <div className="flex gap-3 mt-6 pt-6 border-t border-white/10">
                       {['YouTube', 'Instagram', 'X'].map((platform) => (
-                        <button key={platform} className="w-10 h-10 rounded-full glass-effect flex items-center justify-center hover:border-orange-500/30 transition-all duration-300 group/btn">
+                        <button key={platform} className="w-10 h-10 rounded-full backdrop-blur-sm bg-white/5 border border-white/10 flex items-center justify-center hover:border-orange-500/30 transition-all duration-300 group/btn">
                           <span className="text-xs font-medium group-hover/btn:text-orange-400 transition-colors">{platform[0]}</span>
                         </button>
                       ))}
@@ -235,14 +243,14 @@ export default function Home() {
 
       {/* コンタクト */}
       <section id="contact" className="relative py-32">
-        <div className="container text-center">
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 text-gradient">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
             Get an estimate for your<br />upcoming project
           </h2>
           <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
             お問い合わせフォームは後で実装します。まずはメンバー紹介をご確認ください。
           </p>
-          <button className="group relative px-12 py-5 rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-orange-500 bg-size-200 font-bold text-black text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25">
+          <button className="group relative px-12 py-5 rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-orange-500 font-bold text-black text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25" style={{backgroundSize: '200% 200%'}}>
             <span className="relative z-10 flex items-center gap-3">
               CONTACT US
               <svg className="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -256,9 +264,9 @@ export default function Home() {
 
       {/* フッター */}
       <footer className="border-t border-white/10 py-16">
-        <div className="container">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="text-3xl font-black text-gradient">YOAKE</div>
+            <div className="text-3xl font-black bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">YOAKE</div>
             <nav className="flex flex-wrap gap-8 text-sm font-medium text-gray-400">
               {['Services', 'Members', 'Projects', 'Contact'].map((item) => (
                 <a 
@@ -271,4 +279,21 @@ export default function Home() {
                 </a>
               ))}
             </nav>
-            <div className="text-gray-500 text-sm">© {new
+            <div className="text-gray-500 text-sm">© {new Date().getFullYear()} YOAKE Studio. All rights reserved.</div>
+          </div>
+        </div>
+      </footer>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+      `}</style>
+    </>
+  );
+}
