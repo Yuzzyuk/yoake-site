@@ -4,8 +4,8 @@ import ServicesShowcase from "../components/ServicesShowcase";
 
 export default function Home() {
   return (
-    <>
-      {/* ===== Hero（あなたの元コードそのまま） ===== */}
+    <div>
+      {/* Hero Section */}
       <main
         style={{
           minHeight: "100vh",
@@ -121,51 +121,59 @@ export default function Home() {
 
       <ServicesShowcase />
 
-      {/* ===== Members（横3並び） ===== */}
-      <section id="members" style={{ position: "relative", padding: "92px 20px", maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "32px" }}>
-          <div style={{
-            display: "inline-block", 
-            padding: "6px 12px", 
-            borderRadius: 999,
-            border: "1px solid rgba(255,255,255,.18)", 
-            background: "rgba(255,255,255,.05)",
-            fontSize: 12, 
-            letterSpacing: ".12em", 
-            opacity: .85
-          }}>
+      {/* Members Section */}
+      <section 
+        id="members" 
+        className="members-section"
+        style={{
+          position: "relative",
+          padding: "92px 20px",
+          maxWidth: 1200,
+          margin: "0 auto",
+        }}
+      >
+        <div className="members-head" style={{ textAlign: "center", marginBottom: "32px" }}>
+          <div 
+            className="pill"
+            style={{
+              display: "inline-block",
+              padding: "6px 12px",
+              borderRadius: 999,
+              border: "1px solid rgba(255,255,255,.18)",
+              background: "rgba(255,255,255,.05)",
+              fontSize: 12,
+              letterSpacing: ".12em",
+              opacity: .85,
+            }}
+          >
             OUR CREATIVE MEMBERS
           </div>
-          <h2 style={{
-            margin: "10px 0 8px", 
-            fontSize: "clamp(28px,4.6vw,44px)",
-            fontWeight: 900, 
-            letterSpacing: "-.02em",
-            background: "linear-gradient(90deg,#fff,rgba(255,255,255,.7))",
-            WebkitBackgroundClip: "text", 
-            WebkitTextFillColor: "transparent"
-          }}>
+          <h2
+            style={{
+              margin: "10px 0 8px",
+              fontSize: "clamp(28px,4.6vw,44px)",
+              fontWeight: 900,
+              letterSpacing: "-.02em",
+              background: "linear-gradient(90deg,#fff,rgba(255,255,255,.7))",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
             チームで"世界観"を届ける
           </h2>
-          <p style={{
-            margin: "0 auto", 
-            maxWidth: 760, 
-            opacity: .8, 
-            lineHeight: 1.7
-          }}>
+          <p
+            style={{
+              margin: "0 auto",
+              maxWidth: 760,
+              opacity: .8,
+              lineHeight: 1.7,
+            }}
+          >
             登録者20万人級のYouTuber × SNSマーケ × 映像制作。熱量をそのまま世界へ。
           </p>
         </div>
 
-        <div style={{
-          display: "grid", 
-          gap: 18, 
-          gridTemplateColumns: "1fr",
-          "@media (min-width: 860px)": {
-            gridTemplateColumns: "repeat(3, 1fr)", 
-            gap: 22
-          }
-        }}>
+        <div className="row">
           <MemberCard
             img="/Yuzzy.jpg"
             name="Yuzzy"
@@ -200,17 +208,119 @@ export default function Home() {
             ]}
           />
         </div>
+
+        <style jsx>{`
+          .members-section::before {
+            content: "";
+            position: absolute;
+            inset: -10% -20% auto -20%;
+            height: 420px;
+            background:
+              radial-gradient(600px 200px at 50% 0%, rgba(229,46,113,.20), transparent 70%),
+              radial-gradient(500px 220px at 20% 0%, rgba(0,229,255,.12), transparent 70%),
+              radial-gradient(500px 220px at 80% 0%, rgba(255,138,0,.12), transparent 70%);
+            filter: blur(40px);
+            pointer-events: none;
+          }
+          .row {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: 1fr;
+          }
+          @media (min-width: 860px) {
+            .row {
+              grid-template-columns: repeat(3, 1fr);
+              gap: 22px;
+            }
+          }
+          :global(.card) {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            padding: 14px;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.12);
+            transform-style: preserve-3d;
+            transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
+          }
+          :global(.card::before) {
+            content: "";
+            position: absolute;
+            inset: -40% -40%;
+            background: conic-gradient(from 0deg, rgba(255,138,0,.18), rgba(229,46,113,.18), rgba(0,229,255,.18), rgba(255,138,0,.18));
+            filter: blur(40px);
+            transform: translateZ(-1px);
+            opacity: .0;
+            transition: opacity .35s;
+            pointer-events: none;
+          }
+          :global(.card::after) {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.25) 50%, transparent 60%);
+            transform: translateX(-120%) skewX(-12deg);
+            transition: transform .7s ease;
+            pointer-events: none;
+          }
+          :global(.card:hover) {
+            transform: translateY(-8px) rotateX(1deg);
+            box-shadow: 0 24px 60px rgba(0,0,0,.45);
+            border-color: rgba(255,255,255,.25);
+          }
+          :global(.card:hover::before) {
+            opacity: .8;
+          }
+          :global(.card:hover::after) {
+            transform: translateX(120%) skewX(-12deg);
+          }
+          :global(.media) {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 14px;
+            animation: float 7s ease-in-out infinite;
+          }
+          @keyframes float {
+            0%, 100% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-6px);
+            }
+          }
+          :global(.body) {
+            padding: 12px 6px 6px;
+          }
+          :global(.name) {
+            margin: 10px 0 2px;
+            font-weight: 800;
+            font-size: 20px;
+          }
+          :global(.role) {
+            margin: 0 0 10px;
+            opacity: .8;
+            font-size: 13px;
+            letter-spacing: .01em;
+          }
+          :global(.list) {
+            margin: 0;
+            padding-left: 18px;
+            opacity: .88;
+          }
+          :global(.list li) {
+            margin: 6px 0;
+          }
+        `}</style>
       </section>
 
-      {/* ===== 実績（ロゴ・マルキー） ===== */}
       <ClientsMarquee />
 
-      {/* ===== Projects（既存の ProjectsSection を呼ぶ） ===== */}
       <section id="projects">
         <ProjectsSection />
       </section>
 
-      {/* ===== Contact（後で本実装） ===== */}
+      {/* Contact */}
       <section
         id="contact"
         style={{
@@ -227,7 +337,7 @@ export default function Home() {
         <p>お問い合わせフォームは後で実装します。まずはメンバー紹介をご確認ください。</p>
       </section>
 
-      {/* ===== Footer ===== */}
+      {/* Footer */}
       <footer
         style={{
           borderTop: "1px solid rgba(255,255,255,.12)",
@@ -255,151 +365,10 @@ export default function Home() {
           </nav>
         </div>
       </footer>
-
-      {/* CSS */}
-      <style jsx global>{`
-        .members-section {
-          position: relative;
-          padding: 92px 20px;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-        .members-section::before {
-          content: "";
-          position: absolute;
-          inset: -10% -20% auto -20%;
-          height: 420px;
-          background:
-            radial-gradient(600px 200px at 50% 0%, rgba(229,46,113,.20), transparent 70%),
-            radial-gradient(500px 220px at 20% 0%, rgba(0,229,255,.12), transparent 70%),
-            radial-gradient(500px 220px at 80% 0%, rgba(255,138,0,.12), transparent 70%);
-          filter: blur(40px);
-          pointer-events: none;
-        }
-        .members-head {
-          text-align: center;
-          margin-bottom: 32px;
-        }
-        .pill {
-          display: inline-block;
-          padding: 6px 12px;
-          border-radius: 999px;
-          border: 1px solid rgba(255,255,255,.18);
-          background: rgba(255,255,255,.05);
-          font-size: 12px;
-          letter-spacing: .12em;
-          opacity: .85;
-        }
-        .members-head h2 {
-          margin: 10px 0 8px;
-          font-size: clamp(28px,4.6vw,44px);
-          font-weight: 900;
-          letter-spacing: -.02em;
-          background: linear-gradient(90deg,#fff,rgba(255,255,255,.7));
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-        .members-head p {
-          margin: 0 auto;
-          max-width: 760px;
-          opacity: .8;
-          line-height: 1.7;
-        }
-        .row {
-          display: grid;
-          gap: 18px;
-          grid-template-columns: 1fr;
-        }
-        @media (min-width: 860px) {
-          .row {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-          }
-        }
-        .card {
-          position: relative;
-          border-radius: 22px;
-          overflow: hidden;
-          padding: 14px;
-          background: rgba(255,255,255,.04);
-          border: 1px solid rgba(255,255,255,.12);
-          transform-style: preserve-3d;
-          transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
-        }
-        .card::before {
-          content: "";
-          position: absolute;
-          inset: -40% -40%;
-          background: conic-gradient(from 0deg, rgba(255,138,0,.18), rgba(229,46,113,.18), rgba(0,229,255,.18), rgba(255,138,0,.18));
-          filter: blur(40px);
-          transform: translateZ(-1px);
-          opacity: .0;
-          transition: opacity .35s;
-          pointer-events: none;
-        }
-        .card::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.25) 50%, transparent 60%);
-          transform: translateX(-120%) skewX(-12deg);
-          transition: transform .7s ease;
-          pointer-events: none;
-        }
-        .card:hover {
-          transform: translateY(-8px) rotateX(1deg);
-          box-shadow: 0 24px 60px rgba(0,0,0,.45);
-          border-color: rgba(255,255,255,.25);
-        }
-        .card:hover::before {
-          opacity: .8;
-        }
-        .card:hover::after {
-          transform: translateX(120%) skewX(-12deg);
-        }
-        .media {
-          width: 100%;
-          aspect-ratio: 4 / 3;
-          object-fit: cover;
-          border-radius: 14px;
-          animation: float 7s ease-in-out infinite;
-        }
-        @keyframes float {
-          0%,100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-6px);
-          }
-        }
-        .body {
-          padding: 12px 6px 6px;
-        }
-        .name {
-          margin: 10px 0 2px;
-          font-weight: 800;
-          font-size: 20px;
-        }
-        .role {
-          margin: 0 0 10px;
-          opacity: .8;
-          font-size: 13px;
-          letter-spacing: .01em;
-        }
-        .list {
-          margin: 0;
-          padding-left: 18px;
-          opacity: .88;
-        }
-        .list li {
-          margin: 6px 0;
-        }
-      `}</style>
-    </>
+    </div>
   );
 }
 
-/* ===== Member Card（既存） ===== */
 function MemberCard(props: { img: string; name: string; role: string; lines: string[] }) {
   return (
     <article className="card">
